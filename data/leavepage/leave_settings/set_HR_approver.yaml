@@ -1,0 +1,7 @@
+goto_set_HR_approver:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()]//li[1]/a'
+    action: wait_click
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()]//li[1]/a'
+    action: click

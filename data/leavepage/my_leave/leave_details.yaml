@@ -1,0 +1,38 @@
+get_first_object_status:
+  - by: xpath
+    locator: '//*[@class="tablelist"]//tbody/tr[1]/td[last()-1]/span'
+    action: wait
+  - by: xpath
+    locator: '//*[@class="tablelist"]//tbody/tr[1]/td[last()-1]/span'
+    action: text
+
+cancel_the_first_leave:
+  - by: xpath
+    locator: '//*[@class="tablelist"]//tbody/tr[1]/td[last()]//li/a'
+    action: wait_click
+  - by: xpath
+    locator: '//*[@class="tablelist"]//tbody/tr[1]/td[last()]//li/a'
+    action: click
+  - by: xpath
+    locator: '//*[@class="layui-layer-btn0"]'
+    action: wait_click
+  - by: xpath
+    locator: '//*[@class="layui-layer-btn0"]'
+    action: click
+
+cancel_leave_of_number:
+  - by: xpath
+    locator: '//*[contains(text(),"${leave_num}")]/../../../td[last()]//li/a'
+    action: wait_click
+  - by: xpath
+    locator: '//*[contains(text(),"${leave_num}")]/../../../td[last()]//li/a'
+    action: click
+  - by: xpath
+    locator: '//*[@class="layui-layer-btn0"]'
+    action: wait_click
+  - by: xpath
+    locator: '//*[@class="layui-layer-btn0"]'
+    action: click
+  - by: xpath
+    locator: '//*[contains(text(),"${leave_num}")]/../../../td[last()-1]/span'
+    action: text

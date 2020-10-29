@@ -1,0 +1,34 @@
+keywords_search:
+  - by: xpath
+    locator: '//*[@name="key"]'
+    action: wait
+  - by: xpath
+    locator: '//*[@name="key"]'
+    action: send
+    value: ${keywords}
+
+click_search:
+  - by: xpath
+    locator: '//*[@id="selectFrom"]/span[last()]/input[1]'
+    action: click
+
+get_the_first_Balance_days:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[8]/span'
+    action: text
+
+get_the_first_Days_Remaining_in_that_year:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[9]/span'
+    action: text
+
+get_the_first_rest_in_that_year:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[10]/span'
+    action: text
+
+get_the_first_Balance_days_AL:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[11]/span'
+    action: text
+

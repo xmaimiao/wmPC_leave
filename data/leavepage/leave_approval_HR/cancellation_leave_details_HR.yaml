@@ -1,0 +1,15 @@
+choose_all:
+  - by: xpath
+    locator: 2
+    action: sleep
+  - by: xpath
+    locator: '//*[@class="input_radio"]/../ins'
+    action: click
+
+click_save:
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: '//*[@class="subbox"]/input[@class="submit"]'
+    action: click

@@ -1,0 +1,23 @@
+order_by_submission_time:
+  - by: xpath
+    locator: '//*[@class="selected-name"]'
+    action: wait_click
+  - by: xpath
+    locator: '//*[@class="selected-name"]'
+    action: click
+  - by: xpath
+    locator: '//*[@class="selector-item "]/span[1]'
+    action: click
+
+the_first_cancellation_of_leave:
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()]//li[2]/a'
+    action: click
+
+get_the_first_days_of_leave:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()-4]/span'
+    action: text

@@ -1,0 +1,62 @@
+rule_name:
+  - by: xpath
+    locator: '//*[@name="title"]'
+    action: send
+    value: ${rule_name}
+
+Annual_starting_point:
+  - by: xpath
+    locator: '//*[@name="total"]'
+    action: send
+    value: ${annual_point}
+
+Maximum_days:
+  - by: xpath
+    locator: '//*[@name="maxTotal"]'
+    action: send
+    value: ${maxTotal_days}
+
+Minimum_leave:
+  - by: xpath
+    locator: '//*[@name="minDay"]'
+    action: send
+    value: ${minDay}
+
+Annual_statistics:
+  - by: xpath
+    locator: '//*[@class="formlist formlist_mt"]/li[6]/div/div[${num}]/ins'
+    action: click
+
+increment_rule:
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: '//*[@class="item isIncrement"]/div/div[2]/ins'
+    action: click
+
+for_people:
+  - by: xpath
+    locator: '//*[@class="input-group-addon"]'
+    action: click
+  - by: xpath
+    locator: '//*[@class="searchbox_1 popup_s"]/*[@class="input"]'
+    action: click
+  - by: xpath
+    locator: '//*[@class="searchbox_1 popup_s"]/*[@class="input"]'
+    action: send
+    value: ${leave_type}
+  - by: xpath
+    locator: '//*[contains(text(),"${leave_type}")]/i[@class="jstree-icon jstree-checkbox"]'
+    action: wait
+  - by: xpath
+    locator: '//*[contains(text(),"${leave_type}")]/i[@class="jstree-icon jstree-checkbox"]'
+    action: click
+  - by: xpath
+    locator: '//*[@class="share_footer"]//*[@class="submit"]'
+    action: click
+
+click_save:
+  - by: xpath
+    locator: '//*[@class="subbox"]/*[@class="submit"]'
+    action: click

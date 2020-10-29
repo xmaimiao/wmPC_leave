@@ -1,0 +1,17 @@
+#uat密码wemust@Better  正式站：wemust@prod
+dev: {username: test11,password: wemust@dev,application: 請假}
+uat: {username: mai2,password: wemust@Better,application: 請假}
+mo: {username: test38-test,password: wemust@prod,application: 請假}
+
+test_AL_application_pre:
+#bug27123 當前處於A周期，A周期剩餘年假>M，B周期年假<N，验证申请成功
+ - {username: test38-test,password: wemust@prod,application: 請假,user: test38-test,
+    keywords: 'test309',vacation_type: 博士後(),expect1: 2020-07-01,
+    setting2: 假期週期,period_name: '教研人員適用',leave_type: '大學管理人員',expect2: True,
+    setting3: 暑期工作日設置,summer_name: '暑期週三為工作日的教師適用',expect3: True,
+    setting4: 帶薪年假,rule_name: '年假测试，用完即删',annual_point: 12,maxTotal_days: 12,minDay: 0.5,num: 1,expect4: '年假测试，用完即删'}
+
+test_AL_application:
+  - { username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2021-06-30,leave_starttype: 全天,
+      enddate: 2021-06-30,leave_endtype: 全天,remarks: 測試數據,expect1: True,
+      keywords: test309,expect2: '3.00' }

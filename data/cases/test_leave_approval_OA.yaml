@@ -1,0 +1,15 @@
+#uat密码wemust@Better  正式站：wemust@prod
+dev: {username: test11,password: wemust@dev,application: 請假}
+uat: {username: mai2,password: wemust@Better,application: 請假}
+mo: {username: test38-test,password: wemust@prod,application: 請假}
+
+#测试之前确保计划之间的冲突，最好删除其他考试计划
+test_AL_application:
+#1.同排考編號，班別重複
+  - {username: test38-test,password: wemust@prod,application: 請假,expect: 人事審核}
+test_AL_application_over_a_day:
+  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,leave_startmonth: 10,leave_startday: 15,
+     leave_endmonth: 10,leave_endday: 17,remarks: 測試數據,expect: True}
+test_get_days_available:
+##2.同排考編號，班別不存在
+  - {username: test38-test,password: wemust@prod,application: 請假,expect: 28}

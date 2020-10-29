@@ -1,0 +1,10 @@
+#uat密码wemust@Better  正式站：wemust@prod
+dev: {username: test11,password: wemust@dev,application: 請假}
+uat: {username: mai2,password: wemust@Better,application: 請假}
+mo: {username: test38-test,password: wemust@prod,application: 請假}
+
+test_application_of_HR:
+ - {username: test38-test,password: wemust@prod,application: 請假,user: test38-test,startdate: 2021-01-03,leave_starttype: 全天,
+    enddate: 2021-01-04,leave_endtype: 全天,remarks: 測試數據,expect: 已審批}
+test_cancellation_of_leave_of_HR:
+  - {username: test38-test,password: wemust@prod,application: 請假,expect: '0.0'}

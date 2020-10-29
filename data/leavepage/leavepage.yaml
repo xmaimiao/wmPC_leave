@@ -1,0 +1,35 @@
+goto_application_for_leaver:
+  - by: xpath
+    locator: '//i[@class="icon iconfont icon-xiujia-shenqingxiujia"]'
+    action: click
+
+goto_my_leave:
+  - by: xpath
+    locator: '//*[@class="icon iconfont icon-xiujia-wodexiujia"]'
+    action: click
+
+goto_leave_approval_HR:
+  - by: xpath
+    locator: '//*[@class="icon iconfont icon-xiujia-xiujiabeian"]'
+    action: click
+
+goto_staff_application_for_leave_HR:
+  - by: xpath
+    locator: '//*[@class="icon iconfont icon-xiujia-yuangongqingjiaHR"]'
+    action: click
+
+
+goto_approver_information_table:
+  - by: xpath
+    locator: '//*[@class="icon iconfont icon-xiujia-yuangongxinxibiao"]'
+    action: click
+
+goto_leave_balance_statement:
+  - by: xpath
+    locator: '//*[@class="icon iconfont icon-xiujia-lizhiyuangongjieyubaobiao"]'
+    action: click
+
+goto_leave_settings:
+  - by: xpath
+    locator: '//*[@class="icon iconfont icon-xiujia-xiujiashezhi"]'
+    action: click

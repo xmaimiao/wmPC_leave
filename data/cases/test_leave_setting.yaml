@@ -1,0 +1,25 @@
+#uat密码wemust@Better  正式站：wemust@prod
+dev: {username: test11,password: wemust@dev,application: 請假}
+uat: {username: mai2,password: wemust@Better,application: 請假}
+mo: {username: test38-test,password: wemust@prod,application: 請假}
+
+test_delect_annual:
+ - {username: test38-test,password: wemust@prod,application: 請假,user: test38-test,
+    setting: 帶薪年假,rule_name: '10-24',expect: 0}
+
+test_add_annual:
+ - {username: test38-test,password: wemust@prod,application: 請假,user: test38-test,
+    setting: 帶薪年假,rule_name: '10-24',annual_point: 12,maxTotal_days: 12,minDay: 0.5,num: 1,leave_type: '德科-测试',expect: '10-24'}
+
+test_edit_annual:
+ - {username: test38-test,password: wemust@prod,application: 請假,user: test38-test,
+    setting: 帶薪年假,rule_name: '全職-可永久累積年假',annual_point: 12,maxTotal_days: 12,
+    minDay: 0.5,num: 1,leave_type: '大學管理人員',expect: True}
+
+test_edit_holiday_period:
+ - {username: test38-test,password: wemust@prod,application: 請假,user: test38-test,
+    setting: 假期週期,period_name: '教研人員適用',leave_type: '大學管理人員',expect: True}
+
+test_edit_summer_setting:
+ - {username: test38-test,password: wemust@prod,application: 請假,user: test38-test,
+    setting: 暑期工作日設置,summer_name: '暑期週三為工作日的教師適用',leave_type: '大學管理人員',expect: True}

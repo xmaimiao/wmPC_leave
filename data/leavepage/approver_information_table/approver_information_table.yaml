@@ -1,0 +1,45 @@
+keywords_search:
+  - by: xpath
+    locator: '//*[@name="key"]'
+    action: wait
+  - by: xpath
+    locator: '//*[@name="key"]'
+    action: send
+    value: ${keywords}
+
+click_search_button:
+  - by: xpath
+    locator: '//*[@class="panel-heading tit_big"]/form/span/span[last()]/input[3]'
+    action: click
+
+edit_the_first_approver:
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody//tr[1]/td[last()]//li[2]/a'
+    action: click
+
+get_the_first_superior:
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[7]/span'
+    action: text
+
+get_the_first_supervisor:
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[8]/span'
+    action: text
+
+get_the_first_day_ofentry:
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()-4]/span'
+    action: text

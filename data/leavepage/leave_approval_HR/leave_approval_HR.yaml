@@ -1,0 +1,14 @@
+goto_pending_for_approval_HR:
+  - by: xpath
+    locator: '//*[@class="tab_title_2"]/a[1]'
+    action: click
+
+goto_approved_HR:
+  - by: xpath
+    locator: '//*[@class="tab_title_2"]/a[2]'
+    action: click
+
+goto_application_records_for_HR:
+  - by: xpath
+    locator: '//*[@class="tab_title_2"]/a[3]'
+    action: click

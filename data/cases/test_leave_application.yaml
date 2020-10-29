@@ -1,0 +1,23 @@
+#uat密码wemust@Better  正式站：wemust@prod
+dev: {username: test304,password: wemust@dev,application: 請假}
+uat: {username: test38-test,password: wemust@Better,application: 請假}
+mo: {username: test38-test,password: wemust@prod,application: 請假}
+
+test_AL_application:
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,leave_startyear: "2021",leave_startmonth: 十月,leave_startday: 21,remarks: 測試數據,expect1: True,expect2: 已撤銷}
+#bug27123 當前處於A周期，A周期剩餘年假>M，B周期年假<N，验证申请成功
+  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,leave_startyear: "2021",leave_startmonth: 六月,leave_startday: 21,remarks: 測試數據,expect1: True,expect2: 已撤銷}
+
+test_cancel_the_first_leave:
+  - {username: test38-test,password: wemust@prod,application: 請假,expect: 已撤銷}
+test_cancel_leave_number:
+  - {username: test38-test,password: wemust@prod,application: 請假,leave_num: LV202010280001,expect: 已撤銷}
+
+
+test_AL_application_over_a_day:
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2021-01-04,leave_starttype: 全天,enddate: 2021-01-05,leave_endtype: 全天,remarks: 測試數據,expect: True}
+  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-10-28,leave_starttype: 全天,enddate: 2020-10-28,leave_endtype: 全天,remarks: 測試數據,expect: True}
+
+test_get_days_available:
+  - {username: test38-test,password: wemust@prod,application: 請假,expect: 28}
+

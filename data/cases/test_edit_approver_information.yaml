@@ -1,0 +1,18 @@
+#uat密码wemust@Better  正式站：wemust@prod
+dev: {username: test11,password: wemust@dev,application: 請假}
+uat: {username: mai2,password: wemust@Better,application: 請假}
+mo: {username: test38-test,password: wemust@prod,application: 請假}
+
+test_clear_superior_supervisor:
+  - {username: test38-test,password: wemust@prod,application: 請假,keywords: '71101',expect: '--'}
+test_edit_leave_type:
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test309',vacation_type:  "博士後()",expect: 2020-07-01 }
+test_edit_date:
+  - {username: test38-test,password: wemust@prod,application: 請假,keywords: 'test307',
+     entrydate: 2020-07-01,resignationdate: 2021-07-30,contract_start_date: 2020-07-01,contract_end_date: 2021-07-30,expect: "2020-07-01"}
+test_edit_date_of_entry:
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test308',vacation_type:  博士後(),
+      entrydate: 2020-07-01,expect: 2020-07-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test306',vacation_type:  "测试-2(测试)",
+#      entrydate: 2019-07-01,expect: 2019-07-01 }
+

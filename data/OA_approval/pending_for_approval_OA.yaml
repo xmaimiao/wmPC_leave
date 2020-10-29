@@ -1,0 +1,15 @@
+the_first_subject:
+  - by: xpath
+    locator: '//*[@class="panel-body scrollbar"]//tbody/tr[1]//span[2]'
+    action: click
+
+goto_leave_application:
+  - by: xpath
+    locator: '//*[@class="nav"]/li[last()]/a/span'
+    action: click
+  - by: xpath
+    locator: '//*[@class="item_0 sendcount applicationMessageCount"]//span'
+    action: wait
+  - by: xpath
+    locator: '//*[@class="item_0 sendcount applicationMessageCount"]//span'
+    action: click

@@ -1,0 +1,80 @@
+edit_superior:
+  - by: xpath
+    locator: '//*[@class="formlist formlist_np"]/li[5]//a'
+    action: click
+
+edit_supervisor:
+  - by: xpath
+    locator: '//*[@class="formlist formlist_np"]/li[6]//a'
+    action: click
+
+edit_vacation_type:
+  - by: xpath
+    locator: '//*[@class="CaptionCont SelectBox search"]/span'
+    action: click
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: '//*[@class="search-txt"]'
+    action: send
+    value: ${vacation_type}
+  - by: xpath
+    locator: '//*[@title="${vacation_type}"]/label'
+    action: wait
+  - by: xpath
+    locator: '//*[@title="${vacation_type}"]/label'
+    action: click
+
+edit_date_of_entry:
+  - by: xpath
+    locator: '//*[@id="creDate"]'
+    action: wait
+  - by: xpath
+    locator: '//*[@id="creDate"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@id="creDate"]'
+    action: send
+    value: ${entrydate}
+
+edit_date_of_resignation:
+  - by: xpath
+    locator: '//*[@id="leaveDate"]'
+    action: wait
+  - by: xpath
+    locator: '//*[@id="leaveDate"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@id="leaveDate"]'
+    action: send
+    value: ${resignationdate}
+
+edit_contract_start_date:
+  - by: xpath
+    locator: '//*[@id="amsStartDate"]'
+    action: wait
+  - by: xpath
+    locator: '//*[@id="amsStartDate"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@id="amsStartDate"]'
+    action: send
+    value: ${contract_start_date}
+
+edit_contract_end_date:
+  - by: xpath
+    locator: '//*[@id="amsEndDate"]'
+    action: wait
+  - by: xpath
+    locator: '//*[@id="amsEndDate"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@id="amsEndDate"]'
+    action: send
+    value: ${contract_end_date}
+
+click_save:
+  - by: xpath
+    locator: '//*[@class="subbox"]/input[@class="submit"]'
+    action: click

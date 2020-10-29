@@ -1,0 +1,14 @@
+goto_application_for_leaver:
+  - by: xpath
+    locator: '//i[@class="icon iconfont icon-xiujia-shenqingxiujia"]'
+    action: click
+
+goto_OA_Approval:
+  - by: xpath
+    locator: '//*[@class="nav"]/li[3]/a/span'
+    action: click
+
+goto_my_leave:
+  - by: xpath
+    locator: '//*[@class="nav_left"]/li[1]//span'
+    action: click

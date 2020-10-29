@@ -1,0 +1,31 @@
+goto_set_HR_approver:
+  - by: xpath
+    locator: '//*[contains(text(),"${setting}")]'
+    action: wait_click
+  - by: xpath
+    locator: '//*[contains(text(),"${setting}")]'
+    action: click
+
+goto_summer_workday_setting:
+  - by: xpath
+    locator: '//*[contains(text(),"${setting}")]'
+    action: wait_click
+  - by: xpath
+    locator: '//*[contains(text(),"${setting}")]'
+    action: click
+
+goto_paid_Annual_Leave:
+  - by: xpath
+    locator: '//*[contains(text(),"${setting}")]'
+    action: wait_click
+  - by: xpath
+    locator: '//*[contains(text(),"${setting}")]'
+    action: clicK
+
+goto_holiday_period:
+  - by: xpath
+    locator: '//*[contains(text(),"${setting}")]'
+    action: wait_click
+  - by: xpath
+    locator: '//*[contains(text(),"${setting}")]'
+    action: click

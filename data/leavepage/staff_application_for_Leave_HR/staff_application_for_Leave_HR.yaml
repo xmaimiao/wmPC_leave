@@ -1,0 +1,87 @@
+applicant:
+  - by: xpath
+    locator: '//*[@class="input-group-addon"]'
+    action: wait_click
+  - by: xpath
+    locator: '//*[@class="input-group-addon"]'
+    action: click
+
+
+send_mobile_no:
+  - by: xpath
+    locator: '//*[@name="createUserTel"]'
+    action: click
+  - by: xpath
+    locator: '//*[@name="createUserTel"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@name="createUserTel"]'
+    action: send
+    value: ${mobile_no}
+
+choice_Sick_Leave:
+  - by: xpath
+    locator: '//*[@id="myform"]/ul[2]/li[1]/div/label[2]//ins'
+    action: click
+
+choice_over_a_day:
+  - by: xpath
+    locator: 2
+    action: sleep
+  - by: xpath
+    locator: '//*[@id="myform"]/ul[2]/li[3]//label[2]//ins'
+    action: click
+
+
+choice_startdate:
+  - by:
+    locator: 'document.getElementById("startDate").value = "${startdate}"'
+    action: execute_js
+
+chocie_startdate_type:
+  - by: xpath
+    locator: '//*[@name="startDateType"]/..//span'
+    action: click
+  - by: xpath
+    locator: '//*[@name="startDateType"]/..//label[contains(text(),"${leave_starttype}")]'
+    action: click
+
+
+choice_enddate:
+  - by:
+    locator: 'document.getElementsByName("endDate")[0].value = "${enddate}"'
+    action: execute_js
+
+chocie_enddate_type:
+  - by: xpath
+    locator: '//*[@name="endDateType"]/..//span'
+    action: click
+  - by: xpath
+    locator: '//*[@name="endDateType"]/..//label[contains(text(),"${leave_endtype}")]'
+    action: click
+
+
+remarks:
+  - by: xpath
+    locator: '//*[@name="remark"]'
+    action: wait_click
+  - by: xpath
+    locator: '//*[@name="remark"]'
+    action: send
+    value: ${remarks}
+
+upload_attachment:
+  - by: xpath
+    locator: '//*[@id="rt_rt_1eko6jcho8su115idu5thbp7g1"]/label'
+    action: click
+  - by:
+    locator: 2
+    action: sleep
+
+cleck_save:
+  - by:
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: '//*[@class="subbox"]/input[@class="submit"]'
+    action: click
