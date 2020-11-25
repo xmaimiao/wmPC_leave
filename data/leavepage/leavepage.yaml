@@ -33,3 +33,8 @@ goto_leave_settings:
   - by: xpath
     locator: '//*[@class="icon iconfont icon-xiujia-xiujiashezhi"]'
     action: click
+
+goto_leave_search:
+  - by: xpath
+    locator: '//*[@class="icon iconfont icon-xiujia-xiujiachaxun"]'
+    action: click

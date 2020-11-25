@@ -85,3 +85,9 @@ cleck_save:
   - by: xpath
     locator: '//*[@class="subbox"]/input[@class="submit"]'
     action: click
+  - by: xpath
+    locator: '//*[@class="tab_title_2"]'
+    action: wait_display
+  - by: xpath
+    locator: '//*[@class="tab_title_2"]'
+    action: text

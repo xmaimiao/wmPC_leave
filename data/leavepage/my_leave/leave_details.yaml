@@ -36,3 +36,8 @@ cancel_leave_of_number:
   - by: xpath
     locator: '//*[contains(text(),"${leave_num}")]/../../../td[last()-1]/span'
     action: text
+
+get_leave_total:
+  - by: xpath
+    locator: '//*[@class="info"]'
+    action: text

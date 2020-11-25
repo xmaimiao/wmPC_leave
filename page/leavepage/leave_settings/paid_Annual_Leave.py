@@ -1,3 +1,5 @@
+import json
+
 from common.contants import paid_Annual_Leave_dir
 from page.basepage import BasePage
 from page.leavepage.leave_settings.add_or_edit_holiday import Add_Or_Edit_Holiday
@@ -55,3 +57,27 @@ class Paid_Annual_Leave(BasePage):
         获取”添加“元素，验证编辑成功，返回默认页面
         '''
         return self.step(paid_Annual_Leave_dir,"get_ele_of_add")
+
+    def get_AL_rules(self):
+        '''
+        获取前5条年假规则：年假起点、最高天数、假期递增规则、转结规则、适用人群
+        '''
+        try:
+            AL_rules=[]
+            for i in range(1,6):
+                self._params["i"] = i
+                AL_rule = {}
+                AL_rule["rule_name"] = self.step(paid_Annual_Leave_dir, "rule_name")
+                AL_rule["start_point"] = self.step(paid_Annual_Leave_dir,"start_point")
+                AL_rule["Maximum_days"] = self.step(paid_Annual_Leave_dir,"Maximum_days")
+                AL_rule["increment_rule"] = self.step(paid_Annual_Leave_dir,"increment_rule")
+                AL_rule["cumulative_rule"] = self.step(paid_Annual_Leave_dir,"cumulative_rule")
+                AL_rule["for_people"] = self.step(paid_Annual_Leave_dir,"for_people")
+                AL_rules.append(AL_rule)
+            print(json.dumps(AL_rules,indent=4,ensure_ascii=False))
+            return True
+        except Exception as e:
+            return False
+
+
+

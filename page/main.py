@@ -6,6 +6,7 @@ from page.index import Index
 from page.leavepage.Approver_information_table.approver_information_table import Approver_Information_Table
 from page.leavepage.leave_approval_HR.leave_approval_HR import Leave_Approval_HR
 from page.leavepage.leave_balance_statement.leave_balance_statement import Leave_Balance_Statement
+from page.leavepage.leave_search.leave_search import Leave_Search
 from page.leavepage.leave_settings.leave_settings import Leave_Settings
 from page.leavepage.staff_application_for_Leave_HR.staff_application_for_Leave_HR import Staff_Application_For_Leave_HR
 from page.loginpage import Login
@@ -94,3 +95,10 @@ class Main(BasePage):
         '''
         self.step(leavepage_dir,"goto_leave_settings")
         return Leave_Settings(self._driver)
+
+    def goto_leave_search(self):
+        '''
+        打開休假查询
+        '''
+        self.step(leavepage_dir,"goto_leave_search")
+        return Leave_Search(self._driver)

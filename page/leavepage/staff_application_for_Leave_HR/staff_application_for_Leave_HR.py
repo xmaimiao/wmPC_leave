@@ -105,11 +105,10 @@ class Staff_Application_For_Leave_HR(BasePage):
 
     def cleck_save(self):
         '''
-        保存表單，並返回“已审批”此元素的状态，True即保存成功且跳转正确的界面
+        保存表單，並返回“已审批”此元素的text
         '''
         try:
-            self.step(staff_application_for_leave_HR_dir, "cleck_save")
-            return self._driver.page_source
+            return self.step(staff_application_for_leave_HR_dir, "cleck_save")
         except Exception as e:
             print("提交表单出错，请检查请假日期！")
             raise e

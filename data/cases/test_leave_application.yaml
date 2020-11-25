@@ -1,8 +1,3 @@
-#uat密码wemust@Better  正式站：wemust@prod
-dev: {username: test304,password: wemust@dev,application: 請假}
-uat: {username: test38-test,password: wemust@Better,application: 請假}
-mo: {username: test38-test,password: wemust@prod,application: 請假}
-
 test_AL_application:
 #  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,leave_startyear: "2021",leave_startmonth: 十月,leave_startday: 21,remarks: 測試數據,expect1: True,expect2: 已撤銷}
 #bug27123 當前處於A周期，A周期剩餘年假>M，B周期年假<N，验证申请成功

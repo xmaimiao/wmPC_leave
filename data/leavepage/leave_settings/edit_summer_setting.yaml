@@ -27,3 +27,13 @@ click_save:
   - by: xpath
     locator: '//*[@class="subbox"]/*[@class="submit"]'
     action: click
+
+edit_start_date:
+  - by: xpath
+    locator: document.getElementById("startDateTwo").value = "${start_date}"
+    action: execute_js
+
+edit_end_date:
+  - by: xpath
+    locator: document.getElementById("endDateTwo").value = "${end_date}"
+    action: execute_js

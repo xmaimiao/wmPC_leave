@@ -40,14 +40,13 @@ class BasePage:
         if driver is None:
             if self._working == "port":
                 # 和瀏覽器打開的調試端口進行通信，瀏覽器要使用 --remote-debugging-port=9222 開啟調試
-                # chrome_options = Options()
                 self._chrome_options.debugger_address = "127.0.0.1:9222"
                 self._driver = webdriver.Chrome(options=self._chrome_options)
 
             elif self._working == "headless":
                 # 無界面方式打开浏览器
                 self._chrome_options.add_argument("--headless")
-                # self._chrome_options.add_argument("--window-size=1920,1080")
+                self._chrome_options.add_argument("--window-size=1920,1080")
                 self._driver = webdriver.Chrome(chrome_options=self._chrome_options)
 
             elif self._working == "brower":
@@ -101,7 +100,6 @@ class BasePage:
     def find_and_click(self,by,locator):
         logging.info(f"click：{locator}")
         self.find(by,locator).click()
-        logging.debug("测试日志")
 
     def find_and_sendkeys(self,by,locator,value):
         logging.info(f"sendkeys：{value}")

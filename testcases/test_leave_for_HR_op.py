@@ -1,5 +1,5 @@
 from common.contants import test_leave_for_HR_dir, basepage_dir
-from page.basepage import get_working
+from page.basepage import  _get_working
 from page.main import Main
 import pytest
 import yaml
@@ -17,9 +17,10 @@ class Test_Leave_For_HR:
         datas = yaml.safe_load(f)
         setup_datas = datas[get_env()]
         test_application_of_HR_datas = datas["test_application_of_HR"]
+        test_cancellation_of_leave_of_HR_orderby_datas = datas["test_cancellation_of_leave_of_HR_orderby"]
         test_cancellation_of_leave_of_HR_datas = datas["test_cancellation_of_leave_of_HR"]
 
-    working = get_working()
+    working = _get_working()
     if working:
         def setup(self):
             '''
@@ -56,10 +57,10 @@ class Test_Leave_For_HR:
             cleck_save()
         assert data["expect"] in result
 
-    @pytest.mark.parametrize("data", test_cancellation_of_leave_of_HR_datas)
-    def test_cancellation_of_leave_of_HR(self, data):
+    @pytest.mark.parametrize("data", test_cancellation_of_leave_of_HR_orderby_datas)
+    def test_cancellation_of_leave_of_HR_orderby(self, data):
         '''
-        验证HR代请假-销假
+        验证HR代请假-销假，点击了”按请假日期-提交日期“顺序
         '''
         result = self.main.goto_leave_approval_HR().\
             goto_application_records_for_HR().\
@@ -67,6 +68,18 @@ class Test_Leave_For_HR:
             the_first_cancellation_of_leave().\
             choose_all().click_save().\
             get_the_first_days_of_leave()
+        assert result == data["expect"]
+
+    @pytest.mark.parametrize("data", test_cancellation_of_leave_of_HR_datas)
+    def test_cancellation_of_leave_of_HR(self, data):
+        '''
+        验证HR代请假-销假，提供申请单编号
+        '''
+        result = self.main.goto_leave_approval_HR().\
+            goto_application_records_for_HR().\
+            get_the_leaveSn_for_cancellation(data["leaveSn"]).\
+            choose_all().click_save().\
+            self.sleep(data["sleeps"]).get_the_first_days_of_leave()
         assert result == data["expect"]
 
     def test_get_data(self):

@@ -7,3 +7,18 @@ get_ele_of_add:
   - by: xpath
     locator: '//*[@class="panel-heading tit_big"]/span/a'
     action: ele_status
+
+get_start_date:
+  - by: xpath
+    locator: '//*[contains(text(),"${summer_name}")]/../../td[2]/span'
+    action: text
+
+get_end_date:
+  - by: xpath
+    locator: '//*[contains(text(),"${summer_name}")]/../../td[3]/span'
+    action: text
+
+get_for_people:
+  - by: xpath
+    locator: '//*[contains(text(),"${summer_name}")]/../../td[6]/span'
+    action: text

@@ -1,8 +1,16 @@
+import json
+import shelve
+
 from common.contants import approver_information_table_dir
 from page.basepage import BasePage
 
 
 class Approver_Information_Table(BasePage):
+
+    def wait_sleep(self,sleeps):
+        self.sleep(sleeps)
+        return self
+
     def keywords_search(self,keywords):
         '''
         關鍵詞查詢
@@ -43,3 +51,57 @@ class Approver_Information_Table(BasePage):
         获取第一个人员的入职日期，用于验证更改入职日期有效
         '''
         return self.step(approver_information_table_dir,"get_the_first_day_ofentry")
+
+    def get_the_fir_superior_and_supervisor(self):
+        '''
+        獲取第一行人員的上級、主管
+        '''
+        try:
+            db = shelve.open("leave_approver")
+            superior = self.step(approver_information_table_dir,"get_the_first_superior")
+            supervisor = self.step(approver_information_table_dir, "get_the_first_supervisor")
+            db["leave_approver"] = superior + "、" + supervisor
+            db.close()
+            print(f"上級和主管分別為：{superior}、{supervisor}")
+            return True
+        except Exception as e:
+            return False
+
+    def get_the_fir_information(self,user_list):
+        '''
+        1.传进来人员的数据
+        2.查询该人员账号，定位每一个人员
+        3.獲取第一行人員的上級、主管、休假類型、上一年度帶假、年假結余天數、入職日期、離職日期
+        '''
+        try:
+            information = []
+            for keywords in user_list:
+                self._params["keywords"] = keywords
+                user_info = {}
+                self.step(approver_information_table_dir, "keywords_search")
+                self.step(approver_information_table_dir, "click_search_button")
+                self.wait_sleep(1)
+                user_info["user"] = keywords
+                user_info["superior"] = self.step(approver_information_table_dir, "get_the_first_superior")
+                user_info["supervisor"] = self.step(approver_information_table_dir, "get_the_first_supervisor")
+                user_info["leave_type"] = self.step(approver_information_table_dir, "get_the_first_leave_type")
+                user_info["Leaves_of_previous"] = self.step(approver_information_table_dir, "get_Leaves_of_previous")
+                user_info["Balance_days_of_AL"] = self.step(approver_information_table_dir, "get_Balance_days_of_AL")
+                user_info["Date_of_entry"] = self.step(approver_information_table_dir, "get_the_first_day_ofentry")
+                user_info["Date_of_resignation"] = self.step(approver_information_table_dir, "get_Date_of_resignation")
+                information.append(user_info)
+            print(json.dumps(information,indent=4,ensure_ascii=False))
+            return True
+        except Exception as e:
+            return False
+
+    @pytest.mark.parametrize("data", test_get_user_information_datas)
+    def test_get_user_information(self,data):
+        '''
+        验证获取员工的上級、主管、休假類型、上一年度帶假、年假結余天數、入職日期、離職日期
+        '''
+        result = self.main.goto_approver_information_table(). \
+            get_the_fir_information(data["user_list"])
+        assert result == True
+
+

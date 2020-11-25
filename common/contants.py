@@ -53,6 +53,8 @@ leave_settings_dir = os.path.join(base_dir,'data/leavepage/leave_settings/leave_
 
 set_HR_approver_dir = os.path.join(base_dir,'data/leavepage/leave_settings/set_HR_approver.yaml')
 
+edit_xingzheng_AL_HR_dir = os.path.join(base_dir,'data/leavepage/leave_settings/edit_xingzheng_AL_HR.yaml')
+
 paid_Annual_Leave_dir = os.path.join(base_dir,'data/leavepage/leave_settings/paid_Annual_Leave.yaml')
 
 add_or_edit_holiday_dir = os.path.join(base_dir,'data/leavepage/leave_settings/add_or_edit_holiday.yaml')
@@ -64,6 +66,8 @@ edit_holiday_period_dir = os.path.join(base_dir,'data/leavepage/leave_settings/e
 summer_workday_setting_dir = os.path.join(base_dir,'data/leavepage/leave_settings/summer_workday_setting.yaml')
 
 edit_summer_setting_dir = os.path.join(base_dir,'data/leavepage/leave_settings/edit_summer_setting.yaml')
+
+leave_search_dir = os.path.join(base_dir,'data/leavepage/leave_search/leave_search.yaml')
 
 
 
@@ -83,6 +87,10 @@ test_bug_dir = os.path.join(base_dir,'data/cases/test_bug.yaml')
 test_leave_setting_dir = os.path.join(base_dir,'data/cases/test_leave_setting.yaml')
 
 test_leave_balance_statement_dir = os.path.join(base_dir,'data/cases/test_leave_balance_statement.yaml')
+
+test_leave_search_dir = os.path.join(base_dir,'data/cases/test_leave_search.yaml')
+
+test_user_setting_dir = os.path.join(base_dir,'data/cases/test_user_setting.yaml')
 
 
 

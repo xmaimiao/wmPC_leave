@@ -21,3 +21,11 @@ get_the_first_days_of_leave:
   - by: xpath
     locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()-4]/span'
     action: text
+
+get_the_leaveSn_for_cancellation:
+  - by: xpath
+    locator: '//*[contains(text(),"${leaveSn}")]/../../../td[last()]//li[2]/a'
+    action: wait_click
+  - by: xpath
+    locator: '//*[contains(text(),"${leaveSn}")]/../../../td[last()]//li[2]/a'
+    action: click

@@ -9,18 +9,20 @@ def get_env():
     获取环境变量：uat、dev、mo正式站
     '''
     with open(basepage_dir, encoding="utf-8") as f:
-        return yaml.safe_load(f)["default"]
+        datas = yaml.safe_load(f)
+        wm_env = datas["default"]
+        setup_datas = datas[wm_env]
+        return setup_datas
 
 class Test_Leave_Application:
     with open(test_leave_application_dir, encoding="utf-8") as f:
         datas = yaml.safe_load(f)
-        setup_datas = datas[get_env()]
         test_AL_application_datas = datas["test_AL_application"]
         test_get_days_available_datas = datas["test_get_days_available"]
         test_AL_application_over_a_day_datas = datas["test_AL_application_over_a_day"]
         test_cancel_the_first_leave_datas = datas["test_cancel_the_first_leave"]
         test_cancel_leave_number_datas = datas["test_cancel_leave_number"]
-
+    _setup_datas = get_env()
     _working = _get_working()
     if _working == "port":
         def setup(self):
@@ -34,9 +36,9 @@ class Test_Leave_Application:
             非調試端口用
             '''
             self.main = Main().goto_login(). \
-                username(self.setup_datas["username"]).password(self.setup_datas["password"]).save(). \
+                username(self._setup_datas["username"]).password(self._setup_datas["password"]).save(). \
                 goto_application(). \
-                goto_leave(self.setup_datas["application"])
+                goto_leave(self._setup_datas["application"])
 
         def teardown_class(self):
             '''
@@ -97,5 +99,13 @@ class Test_Leave_Application:
         result = self.main.goto_application_for_leaver().\
             get_days_available()
         assert result == data["expect"]
+
+    def test_leave_total(self):
+        '''
+        验证请假单的数量
+        '''
+        result = self.main.goto_my_leave().\
+            goto_leave_details().get_leave_total()
+        assert result == 0
 
 

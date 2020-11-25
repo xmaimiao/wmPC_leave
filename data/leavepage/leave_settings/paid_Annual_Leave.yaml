@@ -38,4 +38,34 @@ get_the_first_rule_name:
 get_ele_of_add:
   - by: xpath
     locator: '//*[@class="btn btn-default"]'
-    action: ele_status
+    action: text
+
+rule_name:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[${i}]/td[1]/span'
+    action: text
+
+start_point:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[${i}]/td[2]/span'
+    action: text
+
+Maximum_days:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[${i}]/td[3]/span'
+    action: text
+
+increment_rule:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[${i}]/td[5]'
+    action: text
+
+cumulative_rule:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[${i}]/td[6]'
+    action: text
+
+for_people:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[${i}]/td[last()-1]/span'
+    action: text

@@ -1,4 +1,5 @@
 import re
+
 import win32con
 import win32gui
 
@@ -50,7 +51,7 @@ class Application_For_Leaver(BasePage):
     def chocie_startdate_type(self,leave_starttype):
         '''
         选择开始日期的类型为：全天/上午/下午/晚上
-        leave_endtype: 傳入结束日期的类型
+        leave_starttype: 傳入開始日期的类型
         '''
         self._params["leave_starttype"] = leave_starttype
         self.step(application_for_leave_dir, "chocie_startdate_type")
@@ -59,7 +60,7 @@ class Application_For_Leaver(BasePage):
 
     def choice_enddate(self,enddate):
         '''
-        默认仅一天模式，输入日期
+        输入結束日期
         '''
         self._params["enddate"] = enddate
         self.step(application_for_leave_dir, "choice_enddate")
@@ -68,7 +69,7 @@ class Application_For_Leaver(BasePage):
     def chocie_enddate_type(self,leave_endtype):
         '''
         选择开始日期的类型为：全天/上午/下午/晚上
-        leave_endtype: 傳入开始日期的类型
+        leave_endtype: 傳入結束日期的类型
         '''
         self._params["leave_endtype"] = leave_endtype
         self.step(application_for_leave_dir, "chocie_enddate_type")
@@ -86,7 +87,7 @@ class Application_For_Leaver(BasePage):
 
     def upload_attachment(self,excel_path):
         '''
-        上传附件
+        上传附件,install  pywin32
         '''
         self._params["excel_path"] = excel_path
         self.step(application_for_leave_dir,"upload_attachment")

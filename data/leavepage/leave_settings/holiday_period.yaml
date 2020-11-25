@@ -7,3 +7,28 @@ get_ele_of_add:
   - by: xpath
     locator: '//*[@class="panel-heading tit_big"]/span/a'
     action: ele_status
+
+get_holiday_period_total:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr'
+    action: len
+
+get_Period_name:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[${i}]/td[1]/span'
+    action: text
+
+get_start_date:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[${i}]/td[2]/span'
+    action: text
+
+get_end_date:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[${i}]/td[3]/span'
+    action: text
+
+get_for_people:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[${i}]/td[4]/span'
+    action: text

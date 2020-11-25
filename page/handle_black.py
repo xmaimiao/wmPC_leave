@@ -4,11 +4,16 @@ from selenium.webdriver.common.by import By
 def handlie_blacklist(func):
     def wrapper(*args, **kwargs):
         _blacklist = [
+            (By.XPATH, '//*[@class="ivu-drawer-wrap we-drawer"]/div/div/div/div[3]/i'),
             (By.XPATH, '//*[@class="quit-btn ivu-btn ivu-btn-default"]/span'),
             (By.XPATH, '//*[@name="submit"]'),
             (By.XPATH, '//*[@class="layui-layer-btn0"]'),
-            (By.XPATH, '//*[@id="cboxClose"]')
+            (By.XPATH, '//*[@id="cboxClose"]'),
+            # 针对HR请假弹出“已超過請假人可請假天數，是否繼續提交”捕获“是”元素
+            (By.XPATH, '//*[@class="layui-layer-btn0"]')
+
         ]
+        # “提交”表单元素
         _leave_confirm = (By.XPATH,'//*[@class="subbox"]/input[@class="submit"]')
         _max_err_num = 3
         _error_num = 0
@@ -36,6 +41,8 @@ def handlie_blacklist(func):
                     eles[0].click()
                     # 特殊處理，針對請假彈出“在計算請假天數”警告框，點擊確認繼續流程
                     if ele[1] in _blacklist[2][1]:
+                        instance.find(*_leave_confirm).click()
+                    if ele[1] in _blacklist[5][1]:
                         instance.find(*_leave_confirm).click()
                     return wrapper(*args, **kwargs)
             raise ValueError("元素不在黑名單中")

@@ -1,3 +1,5 @@
+import re
+
 from common.contants import leave_details_dir
 from page.basepage import BasePage
 
@@ -31,4 +33,12 @@ class Leave_Details(BasePage):
         except Exception as e:
             print("数据不可撤销，请检查！")
             raise e
+
+    def get_leave_total(self):
+        '''
+        獲取休假申请单的数量
+        '''
+        total =  self.step(leave_details_dir,"get_leave_total")
+        print(f"休假记录：{total}")
+        return int(re.search("(\d+).*?(\d+).*", total).group(1))
 

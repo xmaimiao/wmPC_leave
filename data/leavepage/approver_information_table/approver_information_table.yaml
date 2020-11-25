@@ -2,6 +2,12 @@ keywords_search:
   - by: xpath
     locator: '//*[@name="key"]'
     action: wait
+#  - by: xpath
+#    locator: '//*[@name="key"]'
+#    action: click
+  - by: xpath
+    locator: '//*[@name="key"]'
+    action: clear
   - by: xpath
     locator: '//*[@name="key"]'
     action: send
@@ -14,32 +20,40 @@ click_search_button:
 
 edit_the_first_approver:
   - by: xpath
-    locator: 1
-    action: sleep
-  - by: xpath
     locator: '//*[@class="tablelist"]/tbody//tr[1]/td[last()]//li[2]/a'
     action: click
 
 get_the_first_superior:
-  - by: xpath
-    locator: 1
-    action: sleep
   - by: xpath
     locator: '//*[@class="tablelist"]/tbody/tr[1]/td[7]/span'
     action: text
 
 get_the_first_supervisor:
   - by: xpath
-    locator: 1
-    action: sleep
-  - by: xpath
     locator: '//*[@class="tablelist"]/tbody/tr[1]/td[8]/span'
     action: text
 
 get_the_first_day_ofentry:
   - by: xpath
-    locator: 1
-    action: sleep
-  - by: xpath
     locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()-4]/span'
+    action: text
+
+get_the_first_leave_type:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[9]/span'
+    action: text
+
+get_Leaves_of_previous:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[12]/span'
+    action: text
+
+get_Balance_days_of_AL:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[13]/span'
+    action: text
+
+get_Date_of_resignation:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[15]/span'
     action: text
