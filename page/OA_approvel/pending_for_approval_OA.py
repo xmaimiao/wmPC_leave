@@ -1,6 +1,7 @@
+from page.leavepage.leavepage import LeavePage
 from common.contants import pending_for_approval_OA_dir
 from page.basepage import BasePage
-from page.leavepage.leavepage import LeavePage
+
 
 
 class Pending_For_Approval(BasePage):

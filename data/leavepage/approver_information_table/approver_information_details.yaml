@@ -20,11 +20,11 @@ edit_vacation_type:
     action: send
     value: ${vacation_type}
   - by: xpath
-    locator: '//*[@title="${vacation_type}"]/label'
+    locator: '//*[@class="optWrapper"]/ul/li[@class="opt"]/label[contains(text(),"${vacation_type}")]'
     action: wait
   - by: xpath
-    locator: '//*[@title="${vacation_type}"]/label'
-    action: click
+    locator: '//*[@class="optWrapper"]/ul/li[@class="opt"]/label[contains(text(),"${vacation_type}")]'
+    action: eles
 
 edit_date_of_entry:
   - by: xpath

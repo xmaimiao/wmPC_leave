@@ -3,9 +3,33 @@ add_holiday:
     locator: '//*[@class="btn btn-default"]'
     action: click
 
+search_holiday:
+  - by: xpath
+    locator: '//*[@name="key"]'
+    action: wait
+  - by: xpath
+    locator: '//*[@name="key"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@name="key"]'
+    action: send
+    value: ${rule_name}
+#点击查询按钮
+  - by: xpath
+    locator: '//*[@class="filter subbox "]/span[2]/input[1]'
+    action: click
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr'
+    action: eles
+
+get_rule_name:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[${i}]/td[1]/span'
+    action: text
+
 edit_holiday:
   - by: xpath
-    locator: '//*[contains(text(),"${rule_name}")]/../../td[last()]//li[1]/a'
+    locator: '//*[@class="tablelist"]/tbody/tr[${i}]/td[last()]//li[1]/a'
     action: click
 
 delect_holiday:

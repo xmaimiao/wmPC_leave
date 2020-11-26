@@ -5,16 +5,19 @@ def handlie_blacklist(func):
     def wrapper(*args, **kwargs):
         _blacklist = [
             (By.XPATH, '//*[@class="ivu-drawer-wrap we-drawer"]/div/div/div/div[3]/i'),
+            # 請假彈出“在計算請假天數”警告框，點擊確認繼續流程
             (By.XPATH, '//*[@class="quit-btn ivu-btn ivu-btn-default"]/span'),
+            # 登陆页面“确认”按钮
             (By.XPATH, '//*[@name="submit"]'),
+            # 请假/加班弹出框的“确认”按钮
             (By.XPATH, '//*[@class="layui-layer-btn0"]'),
-            (By.XPATH, '//*[@id="cboxClose"]'),
             # 针对HR请假弹出“已超過請假人可請假天數，是否繼續提交”捕获“是”元素
             (By.XPATH, '//*[@class="layui-layer-btn0"]')
-
         ]
         # “提交”表单元素
         _leave_confirm = (By.XPATH,'//*[@class="subbox"]/input[@class="submit"]')
+        # 获取弹出框的文本信息
+        _pop_text = (By.XPATH, '//*[@class="layui-layer-content"]')
         _max_err_num = 3
         _error_num = 0
         # 裝飾器會默認把self當第0個參數傳進來
@@ -38,12 +41,15 @@ def handlie_blacklist(func):
             for ele in _blacklist:
                 eles = instance.finds(*ele)
                 if len(eles) > 0:
+                    if ele[1] in _blacklist[3][1]:
+                        pop = instance.find(*_pop_text).text
+                        print(f"温馨提示：{pop}")
                     eles[0].click()
-                    # 特殊處理，針對請假彈出“在計算請假天數”警告框，點擊確認繼續流程
-                    if ele[1] in _blacklist[2][1]:
-                        instance.find(*_leave_confirm).click()
-                    if ele[1] in _blacklist[5][1]:
-                        instance.find(*_leave_confirm).click()
+                    # # 特殊處理，針對請假彈出“在計算請假天數”警告框，點擊確認繼續流程
+                    # if ele[1] in _blacklist[2][1]:
+                    #     instance.find(*_leave_confirm).click()
+                    # if ele[1] in _blacklist[4][1]:
+                    #     instance.find(*_leave_confirm).click()
                     return wrapper(*args, **kwargs)
             raise ValueError("元素不在黑名單中")
     return wrapper

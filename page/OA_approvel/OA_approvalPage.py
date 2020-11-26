@@ -1,6 +1,6 @@
+from page.basepage import BasePage
 from common.contants import OA_approvalPage_dir
 from page.OA_approvel.all_approvals import ALL_Approvals
-from page.basepage import BasePage
 
 
 class OA_Approval(BasePage):

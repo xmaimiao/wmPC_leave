@@ -1,9 +1,8 @@
-
 import pytest
+from page.main import Main
 import shelve
 from common.contants import test_edit_approver_information_dir, basepage_dir
 from page.basepage import _get_working
-from page.main import Main
 import yaml
 
 def get_env():

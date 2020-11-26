@@ -11,7 +11,7 @@ test_add_annual:
 
 test_edit_annual:
  - {username: test38-test,password: wemust@prod,application: 請假,
-    setting: 帶薪年假,rule_name: '全職-可永久累積年假',annual_point: 12,maxTotal_days: 12,
+    setting: 帶薪年假,rule_name: '全職',annual_point: 12,maxTotal_days: 12,
     minDay: 0.5,num: 1,leave_type: '大學管理人員',expect: True}
 
 test_get_holiday_period:
@@ -27,7 +27,7 @@ test_get_summer_date_and_for_people:
       setting: 暑期工作日設置,summer_name: 暑期週三為工作日的教師適用}
 test_edit_summer_setting:
  - {username: test38-test,password: wemust@prod,application: 請假,
-    setting: 暑期工作日設置,summer_name: '暑期週三為工作日的教師適用',leave_type: '大學管理人員',expect: True}
+    setting: 暑期工作日設置,summer_name: '暑期週三為工作日的教師適用',leave_type: '全職',expect: True}
 test_edit_summer_setting_of_date:
   - { username: test38-test,password: wemust@prod,application: 請假,
      summer_name: 暑期週三為工作日的教師適用,start_date: '6-21',end_date: '8-20',setting: 暑期工作日設置,expect: True }
@@ -44,3 +44,4 @@ test_edit_xingzheng_AL_HR:
 test_del_xingzheng_AL_HR:
  - {username: test38-test,password: wemust@prod,application: 請假,users: ["test38-test","test40-test"],
     setting: HR審批人員設置, expect: True}
+

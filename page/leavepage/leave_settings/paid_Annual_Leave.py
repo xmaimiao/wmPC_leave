@@ -16,12 +16,35 @@ class Paid_Annual_Leave(BasePage):
         self.step(paid_Annual_Leave_dir,"add_holiday")
         return Add_Or_Edit_Holiday(self._driver)
 
+    def search_holiday(self,rule_name):
+        '''
+        1.查询规则名称，并点击“查询”按钮
+        '''
+        self._params["rule_name"] = rule_name
+        self.step(paid_Annual_Leave_dir,"search_holiday")
+        return self
+
     def edit_holiday(self,rule_name):
         '''
         根据“规则名称”定位到要修改的年假，点击“编辑”
         '''
         self._params["rule_name"] = rule_name
-        self.step(paid_Annual_Leave_dir,"edit_holiday")
+        # 查询规则名称，返回元素合集
+        eles = self.step(paid_Annual_Leave_dir, "search_holiday")
+        if len(eles) == 1:
+            self._params["i"] = 1
+            self.step(paid_Annual_Leave_dir,"edit_holiday")
+        elif len(eles)>1:
+        #     判断每一个规则名称，若和要编辑相同，则点击“编辑”按钮
+            for i in range(1,len(eles)+1):
+                self._params["i"] = i
+                # 获取规则名称
+                rule_n = self.step(paid_Annual_Leave_dir,"get_rule_name")
+                if rule_n == rule_name:
+                    self.step(paid_Annual_Leave_dir, "edit_holiday")
+                    break
+        else:
+            print("暂无数据！")
         return Add_Or_Edit_Holiday(self._driver)
 
     def delect_holiday(self,rule_name):
@@ -64,7 +87,12 @@ class Paid_Annual_Leave(BasePage):
         '''
         try:
             AL_rules=[]
-            for i in range(1,6):
+            get_current_data_total = self.step(paid_Annual_Leave_dir, "get_current_data_total")
+            if int(get_current_data_total) >6:
+                num = 6
+            else:
+                num = int(get_current_data_total)
+            for i in range(1,num+1):
                 self._params["i"] = i
                 AL_rule = {}
                 AL_rule["rule_name"] = self.step(paid_Annual_Leave_dir, "rule_name")

@@ -1,8 +1,8 @@
+from page.basepage import BasePage
 import json
 import shelve
-
 from common.contants import approver_information_table_dir
-from page.basepage import BasePage
+
 
 
 class Approver_Information_Table(BasePage):
@@ -95,13 +95,6 @@ class Approver_Information_Table(BasePage):
         except Exception as e:
             return False
 
-    @pytest.mark.parametrize("data", test_get_user_information_datas)
-    def test_get_user_information(self,data):
-        '''
-        验证获取员工的上級、主管、休假類型、上一年度帶假、年假結余天數、入職日期、離職日期
-        '''
-        result = self.main.goto_approver_information_table(). \
-            get_the_fir_information(data["user_list"])
-        assert result == True
+
 
 

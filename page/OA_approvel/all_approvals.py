@@ -1,6 +1,6 @@
+from page.basepage import BasePage
 from common.contants import all_approvals_dir
 from page.OA_approvel.pending_for_approval_OA import Pending_For_Approval
-from page.basepage import BasePage
 
 
 class ALL_Approvals(BasePage):

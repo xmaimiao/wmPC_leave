@@ -10,9 +10,16 @@ class Approver_Information_Details(BasePage):
         '''
         修改休假類型
         '''
-        self._params["vacation_type"] = vacation_type
-        self.step(approver_information_details_dir,"edit_vacation_type")
-        return self
+        try:
+            self._params["vacation_type"] = vacation_type
+            results = self.step(approver_information_details_dir,"edit_vacation_type")
+            for result in results:
+                if result.text == vacation_type+"()":
+                    result.click()
+            return self
+        except Exception as e:
+            print("編輯的休假類型不存在！")
+            raise e
 
     def edit_superior(self):
         '''
