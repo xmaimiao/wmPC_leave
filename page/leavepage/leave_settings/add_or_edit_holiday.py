@@ -6,6 +6,10 @@ class Add_Or_Edit_Holiday(BasePage):
     '''
     编辑/添加有薪年假页面
     '''
+    def wait_sleep(self,sleeps):
+        self.sleep(sleeps)
+        return self
+
     def rule_name(self,rule_name):
         '''
         编辑规则名称
@@ -55,9 +59,15 @@ class Add_Or_Edit_Holiday(BasePage):
     def increment_rule(self):
         '''
         编辑假期遞增規則,默认选择不递归
-        :param rule_name:
         '''
         self.step(add_or_edit_holiday_dir,"increment_rule")
+        return self
+
+    def cumulative_rule(self):
+        '''
+        编辑假期遞增規則,默认选择不纍計
+        '''
+        self.step(add_or_edit_holiday_dir,"cumulative_rule")
         return self
 
     def for_people(self,leave_type):

@@ -19,6 +19,11 @@ send_mobile_no:
     value: ${mobile_no}
 
 
+choice_Unpaid_Leave:
+  - by: xpath
+    locator: '//*[@data-text="無薪假"]/../ins'
+    action: click
+
 choice_Sick_Leave:
   - by: xpath
     locator: '//*[@id="myform"]/ul[2]/li[1]/div/label[2]//ins'

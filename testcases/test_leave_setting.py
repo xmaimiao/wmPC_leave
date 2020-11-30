@@ -22,6 +22,7 @@ class Test_Leave_Setting:
         test_delect_annual_datas = datas["test_delect_annual"]
         test_add_annual_datas = datas["test_add_annual"]
         test_edit_annual_datas = datas["test_edit_annual"]
+        test_edit_annual_cumulative_rule_datas = datas["test_edit_annual_cumulative_rule"]
         test_edit_holiday_period_datas = datas["test_edit_holiday_period"]
         test_get_holiday_period_datas = datas["test_get_holiday_period"]
         test_edit_summer_setting_datas = datas["test_edit_summer_setting"]
@@ -89,10 +90,20 @@ class Test_Leave_Setting:
             for_people(data["leave_type"]).click_save().get_the_first_rule_name()
         assert result == data["expect"]
 
+    @pytest.mark.parametrize("data", test_edit_annual_cumulative_rule_datas)
+    def test_edit_annual_cumulative_rule(self,data):
+        '''
+        验证編輯休假设置-年假，不纍計
+        '''
+        result = self.main.goto_leave_settings(). \
+            goto_paid_Annual_Leave(data["setting"]).edit_holiday(data["rule_name"]).\
+            wait_sleep(1).cumulative_rule().click_save().get_ele_of_add()
+        assert result == data["expect"]
+
     @pytest.mark.parametrize("data", test_edit_annual_datas)
     def test_edit_annual(self,data):
         '''
-        验证編輯休假设置-年假
+        验证編輯休假设置-年假，適用人群及不轉結
         '''
         result = self.main.goto_leave_settings(). \
             goto_paid_Annual_Leave(data["setting"]).edit_holiday(data["rule_name"]).\

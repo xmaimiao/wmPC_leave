@@ -9,19 +9,21 @@ def get_env():
     获取环境变量：uat、dev、mo正式站
     '''
     with open(basepage_dir, encoding="utf-8") as f:
-        return yaml.safe_load(f)["default"]
+        datas = yaml.safe_load(f)
+        wm_env = datas["default"]
+        setup_datas = datas[wm_env]
+        return setup_datas
 
 class Test_Leave_For_HR:
     with open(test_leave_for_HR_dir, encoding="utf-8") as f:
-
         datas = yaml.safe_load(f)
-        setup_datas = datas[get_env()]
         test_application_of_HR_datas = datas["test_application_of_HR"]
         test_cancellation_of_leave_of_HR_orderby_datas = datas["test_cancellation_of_leave_of_HR_orderby"]
         test_cancellation_of_leave_of_HR_datas = datas["test_cancellation_of_leave_of_HR"]
 
-    working = _get_working()
-    if working:
+    _setup_datas = get_env()
+    _working = _get_working()
+    if _working == "port":
         def setup(self):
             '''
             開啓調試端口啓用
@@ -33,9 +35,9 @@ class Test_Leave_For_HR:
             非調試端口用
             '''
             self.main = Main().goto_login(). \
-                username(self.setup_datas["username"]).password(self.setup_datas["password"]).save(). \
+                username(self._setup_datas["username"]).password(self._setup_datas["password"]).save(). \
                 goto_application(). \
-                goto_leave(self.setup_datas["application"])
+                goto_leave(self._setup_datas["application"])
 
         def teardown_class(self):
             '''

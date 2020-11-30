@@ -8,8 +8,11 @@ test_application_of_HR:
 #    enddate: 2021-01-04,leave_endtype: 全天,remarks: 測試數據,expect: 已審批}
 
 #bug27046 HR代请假成功，跳转的页面菜单和tab均有误
- - {username: test38-test,password: wemust@prod,application: 請假,user: test303,startdate: 2021-01-03,leave_starttype: 全天,
-    enddate: 2021-01-04,leave_endtype: 全天,remarks: 測試數據,expect: 已審批}
+# - {username: test38-test,password: wemust@prod,application: 請假,user: test303,startdate: 2021-01-03,leave_starttype: 全天,
+#    enddate: 2021-01-04,leave_endtype: 全天,remarks: 測試數據,expect: 已審批}
+# story402  HR帶請假-暑期 deke1701
+ - {username: test38-test,password: wemust@prod,application: 請假,user: 德科1701,startdate: 2020-06-30,leave_starttype: 全天,
+    enddate: 2020-07-03,leave_endtype: 全天,remarks: 測試數據,expect: 已審批}
 
 test_cancellation_of_leave_of_HR_orderby:
   - {username: test38-test,password: wemust@prod,application: 請假,expect: '0.0'}

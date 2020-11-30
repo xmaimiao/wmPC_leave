@@ -35,6 +35,11 @@ increment_rule:
     locator: '//*[@class="item isIncrement"]/div/div[2]/ins'
     action: click
 
+cumulative_rule:
+  - by: xpath
+    locator: '//*[@class="label" and contains(text(),"轉結纍計規則")]/../div[2]/ins'
+    action: click
+
 for_people:
   - by: xpath
     locator: '//*[@class="input-group-addon"]'

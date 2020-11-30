@@ -9,6 +9,7 @@ from page.basepage import BasePage
 
 class Application_For_Leaver(BasePage):
 
+
     def get_days_available(self):
         '''
         獲取可用天數
@@ -30,6 +31,13 @@ class Application_For_Leaver(BasePage):
         选择病假
         '''
         self.step(application_for_leave_dir,"choice_Sick_Leave")
+        return self
+
+    def choice_Unpaid_Leave(self):
+        '''
+        选择無薪假
+        '''
+        self.step(application_for_leave_dir, "choice_Unpaid_Leave")
         return self
 
     def choice_over_a_day(self):

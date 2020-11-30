@@ -4,4 +4,8 @@ uat: {username: mai2,password: wemust@Better,application: 請假}
 mo: {username: test38-test,password: wemust@prod,application: 請假}
 
 test_get_the_first_rest_in_that_year:
-  - { username: test38-test,password: wemust@prod,application: 請假,keywords: test309,expect: '0.00' }
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: test50,expect: '0.00' }
+test_get_the_first_AL_info:
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: deke1703,expect: True }
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: deke1700,expect: True }
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: deke1701,expect: True }

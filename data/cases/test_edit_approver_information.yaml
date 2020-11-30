@@ -24,4 +24,4 @@ test_edit_superior_and_supervisor:
   - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'TIAN YUAN',superior: test301,supervisor: test302}
 
 test_get_user_information:
-  - { username: test38-test,password: wemust@prod,application: 請假,user_list: ["test302","test300"]}
+  - { username: test38-test,password: wemust@prod,application: 請假,user_list: ["test304",]}

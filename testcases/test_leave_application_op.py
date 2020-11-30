@@ -18,6 +18,7 @@ class Test_Leave_Application:
     with open(test_leave_application_dir, encoding="utf-8") as f:
         datas = yaml.safe_load(f)
         test_AL_application_datas = datas["test_AL_application"]
+        test_UL_application_datas = datas["test_UL_application"]
         test_get_days_available_datas = datas["test_get_days_available"]
         test_AL_application_over_a_day_datas = datas["test_AL_application_over_a_day"]
         test_cancel_the_first_leave_datas = datas["test_cancel_the_first_leave"]
@@ -53,7 +54,18 @@ class Test_Leave_Application:
         '''
         result1 = self.main.goto_application_for_leaver().\
             send_mobile_no(data["mobile_no"]).\
-            choice_startdate(data["leave_startyear"],data["leave_startmonth"],data["leave_startday"]).\
+            choice_startdate(data["startdate"]).chocie_startdate_type(data["leave_starttype"]).\
+            remarks(data["remarks"]).cleck_save()
+        assert result1 == data["expect1"]
+
+    @pytest.mark.parametrize("data", test_UL_application_datas)
+    def test_UL_application(self, data):
+        '''
+        验证申請年假成功，謹一天
+        '''
+        result1 = self.main.goto_application_for_leaver().\
+            send_mobile_no(data["mobile_no"]).choice_Unpaid_Leave().\
+            choice_startdate(data["startdate"]).chocie_startdate_type(data["leave_starttype"]).\
             remarks(data["remarks"]).cleck_save()
         assert result1 == data["expect1"]
 
