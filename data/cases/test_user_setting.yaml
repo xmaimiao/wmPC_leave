@@ -1,0 +1,52 @@
+test_get_holiday_period:
+ - { username: test38-test,password: wemust@prod,application: 請假,
+      setting: 假期週期,expect: True }
+test_edit_holiday_period:
+ - {username: test38-test,password: wemust@prod,application: 請假,
+    setting: 假期週期,period_name: '教研人員適用',leave_type: ['1201测试',],expect: True}
+
+test_get_AL_rules:
+   - {username: test38-test,password: wemust@prod,application: 請假,setting: 帶薪年假,rule_name: '',expect: True}
+test_edit_annual:
+ - {username: test38-test,password: wemust@prod,application: 請假,
+    setting: 帶薪年假,rule_name: '實踐2 - 22天年假',annual_point: 12,maxTotal_days: 12,
+    minDay: 0.5,num: 1,leave_type: ['1201测试',],expect: 添加}
+
+test_get_summer_date_and_for_people:
+  - { username: test38-test,password: wemust@prod,application: 請假,user: test38-test,
+      setting: 暑期工作日設置,summer_name: 暑期週三為工作日的教師適用}
+test_edit_summer_setting:
+ - {username: test38-test,password: wemust@prod,application: 請假,
+    setting: 暑期工作日設置,summer_name: '暑期週三為工作日的教師適用',leave_type: ['1201测试',],expect: True}
+test_edit_summer_setting_of_date:
+  - { username: test38-test,password: wemust@prod,application: 請假,
+     summer_name: 暑期週三為工作日的教師適用,start_date: '6-21',end_date: '8-20',setting: 暑期工作日設置,expect: True }
+
+test_get_leave_total_of_user:
+  - {username: test38-test,password: wemust@prod,application: 請假,user: mai3,expect: 0}
+
+test_get_user_information:
+#  - { username: test38-test,password: wemust@prod,application: 請假,user_list: ["test12",]}
+#  - { username: test38-test,password: wemust@prod,application: 請假,user_list: ["deke1700","deke1701","deke1702","deke1703"]}
+#uat
+  - { username: test38-test,password: wemust@prod,application: 請假,user_list: ["test407","test401"]}
+#mo
+#  - { username: test38-test,password: wemust@prod,application: 請假,user_list: ["test40-test",]}
+
+
+test_edit_date_of_entry:
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test50',vacation_type: '全職',
+      entrydate: 2020-06-01,expect: 2020-06-01 }
+
+##uat測試
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test400',vacation_type: '其他',
+#      entrydate: 2019-06-01,expect: 2019-06-01 }
+
+test_edit_person_type:
+#dev
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1701',
+      person_type: 行政人員,expect: True }
+#uat
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test400',
+#      person_type: 行政人員,expect: True }
+

@@ -1,0 +1,12 @@
+edit_rest_day_staff_for_name:
+  - by: xpath
+    locator: '//*[contains(text(),"${week}")]/../../td[last()]//li/a'
+    action: click
+
+get_staff_for_name:
+  - by: xpath
+    locator: '//*[contains(text(),"${week}")]/../../td[last()-1]/span'
+    action: wait
+  - by: xpath
+    locator: '//*[contains(text(),"${week}")]/../../td[last()-1]/span'
+    action: text

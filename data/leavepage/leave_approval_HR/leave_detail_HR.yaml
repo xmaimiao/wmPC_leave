@@ -1,0 +1,16 @@
+reminder_of_supplement:
+  - by: xpath
+    locator: '//*[@name="remind"]'
+    action: wait
+  - by: xpath
+    locator: '//*[@name="remind"]'
+    action: click
+#获取toast提示语
+  - by: xpath
+    locator: '//*[@class="layui-layer-content"]'
+    action: ele_status
+
+close_page:
+  - by: xpath
+    locator: '//*[@id="cboxClose"]'
+    action: click

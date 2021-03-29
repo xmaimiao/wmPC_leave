@@ -1,0 +1,99 @@
+edit_name:
+  - by: xpath
+    locator: '//*[@name="title"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@name="title"]'
+    action: send
+    value: ${rule_name}
+
+edit_Enname:
+  - by: xpath
+    locator: '//*[@name="titleEn"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@name="titleEn"]'
+    action: send
+    value: ${rule_Enname}
+
+edit_startday:
+  - by: xpath
+    locator: 'a = document.getElementsByName("startDate")[0]; a.removeAttribute("readonly")'
+    action: execute_js
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: 'document.getElementsByName("startDate")[0].value="${startday}";'
+    action: execute_js
+
+edit_endday:
+  - by: xpath
+    locator: 'a = document.getElementsByName("endDate")[0]; a.removeAttribute("readonly")'
+    action: execute_js
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: 'document.getElementsByName("endDate")[0].value="${endday}";'
+    action: execute_js
+  - by: xpath
+    locator: '//*[@name="endDate"]'
+    action: click
+
+click_perform:
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: 'return document.getElementById("dpOkInput");'
+    action: execute_js_click
+  - by: xpath
+    locator:
+    action: iframe_swith_to
+
+is_this_half_day_leave:
+  - by: xpath
+    locator: '//*[@name="isHalfDay"]/../ins'
+    action: click
+
+half_day:
+#展開開始時間插件，選擇下午
+  - by: xpath
+    locator: '//*[@name="startDateType"]/../p//i'
+    action: click
+#選擇開始時間-下午
+  - by: xpath
+    locator: '//*[@name="startDateType"]/../div//li[@title="下午"]/label'
+    action: click
+#點擊彈出框中的“確認”
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: '//*[@class="layui-layer-btn0"]'
+    action: click
+#展開結束時間插件，選擇下午
+  - by: xpath
+    locator: '//*[@name="endDateType"]/../p//i'
+    action: click
+#選擇結束時間-下午
+  - by: xpath
+    locator: '//*[@name="endDateType"]/../div//li[@title="下午"]/label'
+    action: click
+
+mandatory_holiday:
+  - by: xpath
+    locator: '//*[@name="isForcedLeave"]/../ins'
+    action: click
+
+for_people:
+  - by: xpath
+    locator: '//*[@class="input-group-addon"]'
+    action: click
+
+click_save:
+  - by: xpath
+    locator: '//*[@class="submit" and @value="確認"]'
+    action: click
+

@@ -1,0 +1,34 @@
+edit_rule_name:
+  - by: xpath
+    locator: '//*[@name="title"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@name="title"]'
+    action: send
+    value: ${rule_name}
+
+edit_start_date:
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: 'document.getElementsByName("startTime")[0].value="${starttime}";'
+    action: execute_js
+
+edit_end_date:
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: 'document.getElementsByName("endTime")[0].value="${endtime}";'
+    action: execute_js
+
+for_people:
+  - by: xpath
+    locator: '//*[@class="input-group-addon"]'
+    action: click
+
+click_save:
+  - by: xpath
+    locator: '//*[@class="submit" and @value="確認"]'
+    action: click

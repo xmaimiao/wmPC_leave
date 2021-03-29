@@ -1,0 +1,24 @@
+simple_search:
+  - by: xpath
+    locator: '//*[@name="key"]'
+    action: wait
+  - by: xpath
+    locator: '//*[@name="key"]'
+    action: click
+  - by: xpath
+    locator: '//*[@name="key"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@name="key"]'
+    action: send
+    value: ${user}
+
+click_search:
+  - by: xpath
+    locator: '//*[@class="item subbox"]/span[last()]/input[1]'
+    action: click
+
+get_current_leave_total:
+  - by: xpath
+    locator: '//*[@class="info"]'
+    action: text

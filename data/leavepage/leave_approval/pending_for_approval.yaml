@@ -1,0 +1,26 @@
+order_by_submission_time:
+  - by: xpath
+    locator: '//*[@class="selected-name"]'
+    action: wait
+  - by: xpath
+    locator: '//*[@class="selected-name"]'
+    action: click
+  - by: xpath
+    locator: '//*[@class="selector-item-name" and contains(text(),"提交時間")]'
+    action: click
+
+the_fir_approved:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()]//li[2]/a'
+    action: wait
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()]//li[2]/a'
+    action: click
+
+the_fir_not_approved:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()]//li[3]/a'
+    action: wait
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()]//li[3]/a'
+    action: click

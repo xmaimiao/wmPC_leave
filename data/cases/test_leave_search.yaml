@@ -1,0 +1,2 @@
+test_get_leave_total_of_user:
+  - {username: test38-test,password: wemust@prod,application: 請假,user: mai3,expect: 0}

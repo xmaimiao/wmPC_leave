@@ -1,0 +1,14 @@
+get_ele_of_tab_title:
+  - by: xpath
+    locator: '//a[@class="cur" and contains(text(),"代請假記錄")]'
+    action: ele_status
+
+goto_the_fir_leave_cancellation_records:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()]//*[contains(text(),"銷假")]'
+    action: click
+
+get_the_fir_status:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()-1]/span'
+    action: text

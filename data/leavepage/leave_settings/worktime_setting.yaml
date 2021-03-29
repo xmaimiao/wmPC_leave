@@ -1,0 +1,14 @@
+edit_the_fir:
+  - by: xpath
+    locator: '//*[@class="btn btn-default"]'
+    action: click
+
+add_rule:
+  - by: xpath
+    locator: '//*[@class="btn btn-default"]'
+    action: click
+
+get_ele_of_add:
+  - by: xpath
+    locator: '//*[@class="btn btn-default"]'
+    action: wait_display

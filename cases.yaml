@@ -1,0 +1,102 @@
+1. pytest test_user_setting.py::Test_User_Setting::test_edit_date_of_entry -v -s
+
+2. pytest test_leave_application_op.py::Test_Leave_Application::test_AL_application_over_a_day -v -s
+
+3. pytest test_leave_application_op.py::Test_Leave_Application::test_AL_application -v -s --lf
+
+4. pytest test_user_setting.py::Test_User_Setting::test_get_user_information -v -s
+
+4.1 pytest test_edit_approver_information.py::Test_Edit_Approver_Information::test_get_user_information -v
+
+5. pytest test_leave_application_op.py::Test_Leave_Application::test_cancel_the_first_leave -v -s
+
+6. pytest test_user_setting.py::Test_User_Setting::test_get_AL_rules -v -s
+
+7. pytest test_leave_setting.py::Test_Leave_Setting::test_edit_annual_cumulative_rule -v -s
+
+8. pytest test_user_setting.py::Test_User_Setting::test_get_summer_date_and_for_people -v -s
+
+9. pytest test_leave_application_op.py::Test_Leave_Application::test_UL_application -v -s
+
+10. pytest test_leave_for_HR_op.py::Test_Leave_For_HR::test_application_of_HR -v -s
+
+11. pytest test_leave_application_op.py::Test_Leave_Application::test_cancel_leave_number -v -s
+
+12. pytest test_leave_balance_statement.py::Test_Leave_Balance_Statement::test_get_the_first_AL_info -v -s
+
+14. pytest test_leave_setting.py::Test_Leave_Setting::test_edit_approver_HR -v -s
+
+15. pytest test_leave_setting.py::Test_Leave_Setting::test_edit_approver_check_HR  -v -s
+
+16. pytest test_leave_setting.py::Test_Leave_Setting::test_get_holiday_period  -v -s
+
+17. pytest test_user_setting.py::Test_User_Setting::test_edit_summer_setting -v -s
+
+18. pytest test_leave_setting.py::Test_Leave_Setting::test_add_annual  -v -s
+
+19. pytest test_leave_setting.py::Test_Leave_Setting::test_edit_annual  -v -s
+
+20. pytest test_login.py::Test_Login::test_logout_fir_and_test502 -v -s
+
+33. pytest test_login.py::Test_Login::test_logout_sec_and_test502 -v -s
+
+31. pytest test_login.py::Test_Login::test_OA_logout_fir_and_login -v -s
+
+
+21. pytest test_leave_setting.py::Test_Leave_Setting::test_get_all_HR  -v -s
+
+22. pytest test_leave_for_HR_op.py::Test_Leave_For_HR::test_get_AL_reminders_of_HR -v -s
+
+23. pytest test_leave_approval_OA_op.py::Test_Leave_Approval_OA::test_OA_approval -v -s
+
+24. pytest test_user_setting.py::Test_User_Setting::test_edit_person_type -v -s
+
+ 24.1 pytest test_leave_setting.py::Test_Leave_Setting::test_edit_person_type -v -s
+
+25. pytest test_leave_application_op.py::Test_Leave_Application::test_AL_application_over_a_day -v -s
+
+26. pytest test_leave_application_op.py::Test_Leave_Application::test_leave_cancellation
+
+27. pytest test_leave_application_op.py::Test_Leave_Application::test_UL_application_over_a_day -v -s
+
+28. pytest test_leave_approval_HR.py::Test_Leave_Approval_HR::test_leave_approval_HR -v -s
+
+29. pytest test_leave_application_op.py::Test_Leave_Application::test_ML_application_over_a_day -v -s
+
+30. pytest test_edit_approver_information.py::Test_Edit_Approver_Information::test_edit_leave_type -v -s
+
+32. pytest test_leave_setting.py::Test_Leave_Setting::test_edit_approver_HR -v -s
+
+33. pytest test_leave_setting.py::Test_Leave_Setting::test_edit_approver_check_HR -v -s
+
+34. pytest test_leave_approval.py::Test_Leave_Approval::test_leave_approval -v -s
+
+35. pytest test_edit_approver_information.py::Test_Edit_Approver_Information::test_edit_superior -v -s
+
+36. pytest test_leave_setting.py::Test_Leave_Setting::test_edit_holiday_period -v -s
+
+37. pytest test_leave_setting.py::Test_Leave_Setting::test_edit_annual_staff -v -s
+
+38. pytest test_leave_setting.py::Test_Leave_Setting::test_edit_rest_day_staff -v -s
+
+39. pytest test_leave_setting.py::Test_Leave_Setting::test_edit_public_holiday_staff -v -s
+
+40. pytest test_leave_setting.py::Test_Leave_Setting::test_add_public_holiday -v -s
+
+41. pytest test_leave_setting.py::Test_Leave_Setting::test_add_public_holiday_half_day -v -s
+
+42. pytest test_leave_setting.py::Test_Leave_Setting::test_add_worktime_setting -v -s
+
+43. pytest test_leave_setting.py::Test_Leave_Setting::test_edit_public_holiday_mandatory -v -s
+
+44. pytest test_edit_approver_information.py::Test_Edit_Approver_Information::test_clear_superior_supervisor -v -s
+
+45. pytest test_edit_approver_information.py::Test_Edit_Approver_Information::test_edit_representative_for_leave -v -s
+
+46.pytest test_leave_application_op.py::Test_Leave_Application::test_AL_application_replace -v -s
+
+47.pytest test_edit_approver_information.py::Test_Edit_Approver_Information::test_edit_superior_and_supervisor -v -s
+
+
+
+

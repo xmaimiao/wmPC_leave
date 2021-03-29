@@ -1,0 +1,4 @@
+get_the_first_days_of_leave_Apppage:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()-4]/span'
+    action: text

@@ -1,0 +1,5 @@
+test_leave_approval:
+  - { username: test38-test,password: wemust@prod,application: 請假,expect: True }
+
+test_leave_not_approval:
+  - { username: test38-test,password: wemust@prod,application: 請假,expect: True }

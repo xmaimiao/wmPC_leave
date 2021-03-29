@@ -1,0 +1,19 @@
+create_rule:
+  - by: xpath
+    locator: '//*[@class="btn btn-default"]'
+    action: click
+
+get_ele_of_add:
+  - by: xpath
+    locator: '//*[@class="btn btn-default"]'
+    action: wait_display
+
+edit_rule_for_name:
+  - by: xpath
+    locator: '//*[contains(text(),"${rule_name}")]/../../td[last()]//li[1]/a'
+    action: click
+
+get_exceptional_group_for_name:
+  - by: xpath
+    locator: '//*[contains(text(),"${rule_name}")]/../../td[last()-1]//span'
+    action: text
