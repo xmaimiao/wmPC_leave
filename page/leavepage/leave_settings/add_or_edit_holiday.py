@@ -1,5 +1,8 @@
+import itertools
+
 from common.contants import add_or_edit_holiday_dir
 from page.basepage import BasePage
+from page.select_leave_type import Select_Leave_Type
 
 
 class Add_Or_Edit_Holiday(BasePage):
@@ -70,17 +73,14 @@ class Add_Or_Edit_Holiday(BasePage):
         self.step(add_or_edit_holiday_dir,"cumulative_rule")
         return self
 
-    def for_people(self,leave_type):
+    def for_people(self):
         '''
         编辑適用人群
-        :param rule_name:
         '''
-        if leave_type in self._driver.page_source:
-            pass
-        else:
-            self._params["leave_type"] = leave_type
-            self.step(add_or_edit_holiday_dir,"for_people")
-        return self
+        self.step(add_or_edit_holiday_dir, "for_people")
+        return Select_Leave_Type(self._driver)
+
+
 
     def click_save(self):
         self.step(add_or_edit_holiday_dir,"click_save")

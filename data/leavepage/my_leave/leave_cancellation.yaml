@@ -1,0 +1,29 @@
+choose_all:
+  - by: xpath
+    locator: '//*[@id="myform_back"]/ul[@class="formlist"]/li[1]/div[1]//ins'
+    action: wait
+  - by: xpath
+    locator: '//*[@id="myform_back"]/ul[@class="formlist"]/li[1]/div[1]//ins'
+    action: click
+
+leave_cancellation:
+#  - by: xpath
+#    locator: '//span[contains(text(),"${date}") and @class="label"]/..//div/div[contains(text(),"${type}")]/ins'
+#    action: wait
+  - by: xpath
+    locator: '//span[contains(text(),"${date}") and @class="label"]/..//div/div[contains(text(),"${type}")]/ins'
+    action: click
+
+remark:
+#  - by: xpath
+#    locator: '//*[@name="reportRemark"]'
+#    action: click
+  - by: xpath
+    locator: '//*[@name="reportRemark"]'
+    action: send
+    value: ${remark}
+
+clcik_save:
+  - by: xpath
+    locator: '//*[@class="subbox"]/*[@class="submit"]'
+    action: click

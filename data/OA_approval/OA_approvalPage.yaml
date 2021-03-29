@@ -1,7 +1,0 @@
-goto_ALL_approvals:
-  - by: xpath
-    locator: '//*[@class="nav_left"]/li[1]//span'
-    action: wait_click
-  - by: xpath
-    locator: '//*[@class="nav_left"]/li[1]//span'
-    action: click

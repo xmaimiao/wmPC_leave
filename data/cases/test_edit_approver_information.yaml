@@ -1,12 +1,17 @@
-#uat密码wemust@Better  正式站：wemust@prod
-dev: {username: test11,password: wemust@dev,application: 請假}
-uat: {username: mai2,password: wemust@Better,application: 請假}
-mo: {username: test38-test,password: wemust@prod,application: 請假}
-
 test_clear_superior_supervisor:
-  - {username: test38-test,password: wemust@prod,application: 請假,keywords: '71101',expect: '--'}
+  - {username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1710',expect: '--'}
 test_edit_leave_type:
-  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test309',vacation_type:  "博士後()",expect: 2020-07-01 }
+#dev
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1707',vacation_type:  "6-C",expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1708',vacation_type:  "测试-2",expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1710',vacation_type:  "测试-2",expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1709',vacation_type:  "测试-2",expect: True }
+#uat
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test500',vacation_type:  "6-C",expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test501',vacation_type:  "1201测试_UAT",expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test502',vacation_type:  "其他",expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test503',vacation_type:  "1201测试_UAT",expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test504',vacation_type:  "1201测试_UAT",expect: True }
 test_edit_date:
   - {username: test38-test,password: wemust@prod,application: 請假,keywords: 'test307',
      entrydate: 2020-07-01,resignationdate: 2021-07-30,contract_start_date: 2020-07-01,contract_end_date: 2021-07-30,expect: "2020-07-01"}
@@ -18,10 +23,31 @@ test_edit_date_of_entry:
 
 test_get_superior_and_supervisor:
   - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test304'}
-test_get_superior:
-  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'Leong Wai Chun',superior: test301 }
-test_edit_superior_and_supervisor:
-  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'TIAN YUAN',superior: test301,supervisor: test302}
+test_edit_superior:
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1709',superior: deke1700 }
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1708',superior: deke1700 }
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1710',superior: deke1700 }
+#uat
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test500',superior: test501 }
 
+test_edit_superior_and_supervisor:
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'TIAN YUAN',superior: test301,supervisor: test302}
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1703',superior: deke1700,supervisor: deke1703}
+#uat
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test500',superior: test501,supervisor: test503 }
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test501',superior: test502,supervisor: test503 }
+
+test_edit_representative_for_leave:
+#dev
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1708',user: deke1705 }
+#uat
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test302',user: test301 }
 test_get_user_information:
-  - { username: test38-test,password: wemust@prod,application: 請假,user_list: ["test304",]}
+#dev
+  - { username: test38-test,password: wemust@prod,application: 請假,
+      user_list: ["deke1700","deke1704","deke1703","deke1705","deke1706","deke1707","deke1708","deke1709","deke1710"]}
+
+#uat
+#  - { username: test38-test,password: wemust@prod,application: 請假,user_list: ["test500","test501","test502","test503","test504"]}
+#  - { username: test38-test,password: wemust@prod,application: 請假,user_list: ["test400","test401","test402","test403","test404"]}
+

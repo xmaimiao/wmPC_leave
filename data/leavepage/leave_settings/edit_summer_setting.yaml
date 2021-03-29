@@ -1,25 +1,6 @@
 edit_for_people:
   - by: xpath
     locator: '//*[@class="input-group-addon"]'
-    action: wait_click
-  - by: xpath
-    locator: '//*[@class="input-group-addon"]'
-    action: click
-  - by: xpath
-    locator: '//*[@class="searchbox_1 popup_s"]/*[@class="input"]'
-    action: click
-  - by: xpath
-    locator: '//*[@class="searchbox_1 popup_s"]/*[@class="input"]'
-    action: send
-    value: ${leave_type}
-  - by: xpath
-    locator: '//*[contains(text(),"${leave_type}")]/i[@class="jstree-icon jstree-checkbox"]'
-    action: wait
-  - by: xpath
-    locator: '//*[contains(text(),"${leave_type}")]/i[@class="jstree-icon jstree-checkbox"]'
-    action: click
-  - by: xpath
-    locator: '//*[@class="share_footer"]//*[@class="submit"]'
     action: click
 
 

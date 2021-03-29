@@ -6,6 +6,14 @@ mo: {username: test38-test,password: wemust@prod,application: 請假}
 test_get_the_first_rest_in_that_year:
   - { username: test38-test,password: wemust@prod,application: 請假,keywords: test50,expect: '0.00' }
 test_get_the_first_AL_info:
-  - { username: test38-test,password: wemust@prod,application: 請假,keywords: deke1703,expect: True }
-  - { username: test38-test,password: wemust@prod,application: 請假,keywords: deke1700,expect: True }
-  - { username: test38-test,password: wemust@prod,application: 請假,keywords: deke1701,expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: deke1703,expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: deke1700,expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: deke1701,expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: deke1700,expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: deke1705,expect: True }
+
+#uat
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: test407,expect: True }
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: test406,expect: True }
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: test405,expect: True }
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: test404,expect: True }

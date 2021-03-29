@@ -7,12 +7,14 @@ from page.select_staff import Select_Staff
 
 class Staff_Application_For_Leave_HR(BasePage):
 
+    def wait_sleep(self,sleeps):
+        self.sleep(sleeps)
+        return self
+
     def applicant(self):
         '''
         HR代请假
-
         '''
-
         self.step(staff_application_for_leave_HR_dir,"applicant")
         return Select_Staff(self._driver)
 
@@ -112,3 +114,15 @@ class Staff_Application_For_Leave_HR(BasePage):
         except Exception as e:
             print("提交表单出错，请检查请假日期！")
             raise e
+
+    def get_AL_reminders(self):
+        '''
+        獲取HR請假中的年假提示天數
+        '''
+        try:
+            text =  self.step(staff_application_for_leave_HR_dir, "get_AL_reminders")
+            print(f"年假提示：{text}")
+            return True
+        except Exception as e:
+            return False
+

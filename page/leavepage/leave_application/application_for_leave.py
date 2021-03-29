@@ -9,6 +9,9 @@ from page.basepage import BasePage
 
 class Application_For_Leaver(BasePage):
 
+    def wait_sleep(self,sleeps):
+        self.sleep(sleeps)
+        return self
 
     def get_days_available(self):
         '''
@@ -26,6 +29,22 @@ class Application_For_Leaver(BasePage):
         self.step(application_for_leave_dir,"send_mobile_no")
         return self
 
+    def choice_createUser(self,createUser):
+        '''
+        选择申请人  ---》代申请用
+        '''
+        self._params["createUser"] = createUser
+        self.step(application_for_leave_dir,"choice_createUser")
+        return self
+
+    def choice_Leave_type(self,Leave_type):
+        '''
+        选择假期类型,通用
+        '''
+        self._params["Leave_type"] = Leave_type
+        self.step(application_for_leave_dir, "choice_Leave_type")
+        return self
+
     def choice_Sick_Leave(self):
         '''
         选择病假
@@ -38,6 +57,13 @@ class Application_For_Leaver(BasePage):
         选择無薪假
         '''
         self.step(application_for_leave_dir, "choice_Unpaid_Leave")
+        return self
+
+    def choice_Marriage_Leave(self):
+        '''
+        选择婚假
+        '''
+        self.step(application_for_leave_dir, "choice_Marriage_Leave")
         return self
 
     def choice_over_a_day(self):
@@ -99,6 +125,7 @@ class Application_For_Leaver(BasePage):
         '''
         self._params["excel_path"] = excel_path
         self.step(application_for_leave_dir,"upload_attachment")
+        self.sleep(1)
         # 找元素
         # 一级窗口"#32770","打开"
         dialog = win32gui.FindWindow("#32770", "打开")
@@ -117,7 +144,16 @@ class Application_For_Leaver(BasePage):
 
     def cleck_save(self):
         '''
-        保存表單，並返回“休假明細”text，驗證保存成功
-        :return:
+        保存表單
         '''
-        return self.step(application_for_leave_dir,"cleck_save")
+        self.step(application_for_leave_dir,"cleck_save")
+        from page.leavepage.my_leavepage.leave_details import Leave_Details
+        return Leave_Details(self._driver)
+
+    def cleck_save_backto_records(self):
+        '''
+        保存表單-代请假用
+        '''
+        self.step(application_for_leave_dir,"cleck_save")
+        from page.leavepage.my_leavepage.substitute_leave_records import Substitute_Leave_Records
+        return Substitute_Leave_Records(self._driver)

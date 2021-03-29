@@ -1,0 +1,13 @@
+test_leave_approval_HR:
+  - { username: test38-test,password: wemust@prod,application: 請假,expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,expect: True }
+
+test_leave_not_approval_HR:
+  - { username: test38-test,password: wemust@prod,application: 請假,expect: True }
+  - { username: test38-test,password: wemust@prod,application: 請假,expect: True }
+  - { username: test38-test,password: wemust@prod,application: 請假,expect: True }

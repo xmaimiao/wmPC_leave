@@ -1,0 +1,4 @@
+get_the_fir_status:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()]/span'
+    action: text

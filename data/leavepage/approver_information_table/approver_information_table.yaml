@@ -23,6 +23,11 @@ edit_the_first_approver:
     locator: '//*[@class="tablelist"]/tbody//tr[1]/td[last()]//li[2]/a'
     action: click
 
+get_the_first_user:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody//tr[1]/td[3]/span'
+    action: text
+
 get_the_first_superior:
   - by: xpath
     locator: '//*[@class="tablelist"]/tbody/tr[1]/td[7]/span'
@@ -41,6 +46,16 @@ get_the_first_day_ofentry:
 get_the_first_leave_type:
   - by: xpath
     locator: '//*[@class="tablelist"]/tbody/tr[1]/td[9]/span'
+    action: text
+
+get_the_first_person_type:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[10]/span'
+    action: text
+
+get_representative_for_leave:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[11]/span'
     action: text
 
 get_Leaves_of_previous:

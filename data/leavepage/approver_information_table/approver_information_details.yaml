@@ -8,6 +8,11 @@ edit_supervisor:
     locator: '//*[@class="formlist formlist_np"]/li[6]//a'
     action: click
 
+edit_representative_for_leave:
+  - by: xpath
+    locator: '//*[@class="formlist formlist_np"]/li[9]//a'
+    action: click
+
 edit_vacation_type:
   - by: xpath
     locator: '//*[@class="CaptionCont SelectBox search"]/span'
@@ -50,6 +55,15 @@ edit_date_of_resignation:
     action: send
     value: ${resignationdate}
 
+edit_person_type:
+#點擊展開下拉框
+  - by: xpath
+    locator: '//*[@class="CaptionCont SelectBox"]/label/i'
+    action: click
+  - by: xpath
+    locator: '//*[@class="optWrapper up"]//li[@title="${person_type}"]/label'
+    action: click
+
 edit_contract_start_date:
   - by: xpath
     locator: '//*[@id="amsStartDate"]'
@@ -75,6 +89,9 @@ edit_contract_end_date:
     value: ${contract_end_date}
 
 click_save:
+  - by: xpath
+    locator: '//*[@class="subbox"]/input[@class="submit"]'
+    action: wait
   - by: xpath
     locator: '//*[@class="subbox"]/input[@class="submit"]'
     action: click

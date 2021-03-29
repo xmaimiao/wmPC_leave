@@ -1,21 +1,18 @@
 from common.contants import edit_holiday_period_dir
 from page.basepage import BasePage
+from page.select_leave_type import Select_Leave_Type
 
 
 class Edit_Holiday_Period(BasePage):
     '''
     编辑假期周期页面
     '''
-    def edit_for_people(self,leave_type):
+    def edit_for_people(self):
         '''
         編輯適用人群
         '''
-        if leave_type in self._driver.page_source:
-            pass
-        else:
-            self._params["leave_type"] = leave_type
-            self.step(edit_holiday_period_dir,"edit_for_people")
-        return self
+        self.step(edit_holiday_period_dir,"edit_for_people")
+        return Select_Leave_Type(self._driver)
 
     def click_save(self):
         self.step(edit_holiday_period_dir,"click_save")

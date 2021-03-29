@@ -1,0 +1,55 @@
+test_edit_vacation_type:
+#dev測試
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test40-test',
+#      vacation_type: '其他',person_type: 行政人員,expect: True }
+#uat測試
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test400',
+      vacation_type: '全職',person_type: 行政人員,expect: True }
+#mo測試
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test40-test',
+#      vacation_type: '全職',person_type: 行政人員,expect: True }
+
+test_edit_approver_HR:
+#mo測試
+#  - { username: test38-test,password: wemust@prod,application: 請假,rules_name: 行政-有薪年假,user: test40-test,
+#      setting: HR審批人員設置, expect: True }
+#uat測試
+  - { username: test38-test,password: wemust@prod,application: 請假,rules_name: 行政-有薪年假,user: test400,
+      setting: HR審批人員設置, expect: True }
+
+test_AL_application_over_a_day:
+#mo測試
+  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-12-14,
+     leave_starttype: 全天,enddate: 2020-12-15,leave_endtype: 全天,remarks: 測試數據,expect: True}
+
+test_OA_approval:
+#uat測試-年假
+  - {username: test38-test,password: wemust@prod,application: 請假,expect: 申請中}
+#mo測試
+#  - {username: test38-test,password: wemust@prod,application: 請假,expect: 申請中}
+
+test_leave_cancellation:
+  - {username: test38-test,password: wemust@prod,application: 請假,
+     date_type_list: [{'date':'2020/12/14','type':'全天'},],
+     remark: 測試數據,expect: 銷假申請}
+
+#用例
+#修改人員類型、休假類型
+#1.pytest test_bug27934_story676.py::Test_bug27934_story676::test_edit_vacation_type
+
+#添加HR人員
+#2.pytest test_bug27934_story676.py::Test_bug27934_story676::test_edit_xingzheng_AL_HR
+
+#申請年假
+#3.pytest test_bug27934_story676.py::Test_bug27934_story676::test_AL_application_over_a_day
+
+#審批通過
+#4.pytest test_bug27934_story676.py::Test_bug27934_story676::test_OA_approval
+
+#銷假
+#5.pytest test_bug27934_story676.py::Test_bug27934_story676::test_leave_cancellation
+
+#還原賬號休假類型
+#6.pytest test_bug27934_story676.py::Test_bug27934_story676::test_edit_vacation_type
+
+#麻煩刪除請假測試數據（有消息通知app、PC）、刪除健康申報、恢復請假設置備份數據 賬號 test40-test

@@ -1,0 +1,7 @@
+get_the_fir_status:
+  - by: xpath
+    locator: '//*[@class="holidayList"]/li[1]/div[1]/div[1]/span[2]'
+    action: wait
+  - by: xpath
+    locator: '//*[@class="holidayList"]/li[1]/div[1]/div[1]/span[2]'
+    action: text

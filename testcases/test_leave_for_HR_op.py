@@ -20,6 +20,7 @@ class Test_Leave_For_HR:
         test_application_of_HR_datas = datas["test_application_of_HR"]
         test_cancellation_of_leave_of_HR_orderby_datas = datas["test_cancellation_of_leave_of_HR_orderby"]
         test_cancellation_of_leave_of_HR_datas = datas["test_cancellation_of_leave_of_HR"]
+        test_get_AL_reminders_of_HR_datas = datas["test_get_AL_reminders_of_HR"]
 
     _setup_datas = get_env()
     _working = _get_working()
@@ -89,4 +90,15 @@ class Test_Leave_For_HR:
             goto_approved_HR(). \
             get_the_first_days_of_leave_Apppage()
         assert result == '1.0'
+
+    @pytest.mark.parametrize("data", test_get_AL_reminders_of_HR_datas)
+    def test_get_AL_reminders_of_HR(self, data):
+        '''
+        验证HR代请假-獲取人員的年假提示語
+        '''
+        result = self.main.goto_staff_application_for_leave_HR().\
+            applicant().choise_staff(data["user"]).\
+            click_save().goto_staff_application_for_Leave_HR(). \
+            wait_sleep(1).get_AL_reminders()
+        assert result == True
 

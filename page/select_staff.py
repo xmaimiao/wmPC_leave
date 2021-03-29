@@ -22,12 +22,15 @@ class Select_Staff(BasePage):
         self.step(select_staff_dir,"click_save")
         return self
 
-    def choise_staff(self,user):
+    def choise_staff(self,user,sleeps):
         '''
         选择人员
         :param user: 人员账号账号
         '''
         self._params["user"] = user
+        self.step(select_staff_dir,"search_staff")
+        # 等待人員出現，dev需要>30s
+        self.sleep(sleeps)
         eles = self.step(select_staff_dir,"choise_staff")
         eles[0].click()
         return self
@@ -40,7 +43,16 @@ class Select_Staff(BasePage):
         try:
             for user in users:
                 self._params["user"] = user
+                # 實現為點擊選人組件右側刪除人員，不足之處沒加滾動定位
                 self.step(select_staff_dir,"delect_staff")
+
+                # 先用查詢人員，不足之處查詢人員會很久
+                # self.step(select_staff_dir, "search_staff")
+                # 等待人員出現，dev需要>30s
+                # self.sleep(5)
+                # eles = self.step(select_staff_dir, "delect_staff")
+                # eles[0].click()
+
         except Exception as e:
             print("該人員可能不存在！")
         return self
@@ -61,9 +73,9 @@ class Select_Staff(BasePage):
         from page.leavepage.Approver_information_table.approver_information_details import Approver_Information_Details
         return Approver_Information_Details(self._driver)
 
-    def goto_edit_xingzheng_AL_HR_page(self):
+    def goto_edit_HR_page(self):
         '''
         打開休假設置-HR行政人元編輯頁面
         '''
-        from page.leavepage.leave_settings.edit_xingzheng_AL_HR import Edit_Xingzheng_AL_HR
-        return Edit_Xingzheng_AL_HR(self._driver)
+        from page.leavepage.leave_settings.edit_HR import Edit_HR
+        return Edit_HR(self._driver)

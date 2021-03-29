@@ -1,45 +1,40 @@
+import json
 from common.contants import set_HR_approver_dir
 from page.basepage import BasePage
-from page.leavepage.leave_settings.edit_xingzheng_AL_HR import Edit_Xingzheng_AL_HR
+from page.leavepage.leave_settings.edit_HR import Edit_HR
 
 
 class Set_HR_Approver(BasePage):
     '''
     HR审批人员设置主页面
     '''
-    def goto_edit_xingzheng_AL_HR(self):
-        '''
-        點擊編輯行政人員年假
-        '''
-        self.step(set_HR_approver_dir,"goto_edit_xingzheng_AL_HR")
-        return Edit_Xingzheng_AL_HR(self._driver)
+    def wait_sleep(self,sleeps):
+        self.sleep(sleeps)
+        return self
 
-    def get_xingzheng_AL_HR(self):
+    def goto_edit_HR(self,rules_name):
         '''
-        獲取行政人員年假HR
+        點擊編輯HR，根據規則名稱打開對應編輯頁面
+        '''
+        self._params["rules_name"] = rules_name
+        self.step(set_HR_approver_dir,"goto_edit_HR")
+        return Edit_HR(self._driver)
+
+    def get_all_HR(self):
+        '''
+        獲取所有HR人員
         '''
         try:
-            HR = self.step(set_HR_approver_dir,"get_xingzheng_AL_HR")
-            print(f"行政年假HR：{HR}")
+            HR_list = []
+            for i in range(1,5):
+                HR = {}
+                self._params["i"] = i
+                HR["規則名稱"] = self.step(set_HR_approver_dir,"get_rule_name")
+                HR["審核人員"]= self.step(set_HR_approver_dir,"get_check")
+                HR["審批人員"] = self.step(set_HR_approver_dir,"get_approver")
+                HR_list.append(HR)
+            print(json.dumps(HR_list, indent=4, ensure_ascii=False))
             return True
         except Exception as e:
             return False
 
-
-    def goto_edit_jiaoyan_AL_HR(self):
-        '''
-        點擊編輯教研人員年假
-        '''
-        self.step(set_HR_approver_dir,"goto_edit_jiaoyan_AL_HR")
-        return Edit_Jiaoyan_AL_HR(self._driver)
-
-    def get_jiaoyan_AL_HR(self):
-        '''
-        獲取教研人員年假HR
-        '''
-        try:
-            HR = self.step(set_HR_approver_dir,"get_jiaoyan_AL_HR")
-            print(f"教研年假HR：{HR}")
-            return True
-        except Exception as e:
-            return False

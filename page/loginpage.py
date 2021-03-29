@@ -16,5 +16,7 @@ class Login(BasePage):
         return self
 
     def save(self):
-        self.step(loginpage_dir, "save")
+        self.step(loginpage_dir, "save_OT")
         return Index(self._driver)
+
+

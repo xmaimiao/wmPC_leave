@@ -1,0 +1,261 @@
+#----------------------環境設置-------------------------------
+test_get_AL_rules:
+ - {username: test38-test,password: wemust@prod,application: 請假,setting: 帶薪年假,expect: True}
+
+test_delect_annual:
+ - {username: test38-test,password: wemust@prod,application: 請假,
+    setting: 帶薪年假,rule_name: '10-24',expect: 0}
+
+test_add_annual:
+# - {username: test38-test,password: wemust@prod,application: 請假,
+#    setting: 帶薪年假,rule_name: '12-24',annual_point: 12,maxTotal_days: 12,minDay: 0.5,num: 1,leave_type: ['德科-测试',],expect: '10-24'}
+
+#uat 12-04暑期任務測試
+# - {username: test38-test,password: wemust@prod,application: 請假,setting: 帶薪年假,rule_name: '12-04暑期測試1',
+#    annual_point: 2,maxTotal_days: 2,minDay: 0.5,num: 1,leave_type: ['其他',],expect: '12-04暑期測試1'}
+# - {username: test38-test,password: wemust@prod,application: 請假,setting: 帶薪年假,rule_name: '12-04暑期測試2',
+#    annual_point: 3,maxTotal_days: 3,minDay: 0.5,num: 1,leave_type: ['1201测试_UAT',],expect: '12-04暑期測試2'}
+
+#mo測試
+ - {username: test38-test,password: wemust@prod,application: 請假,setting: 帶薪年假,rule_name: '12-04暑期測試1',
+    annual_point: 2,maxTotal_days: 2,minDay: 0.5,num: 1,leave_type: ['其他',],expect: '12-04暑期測試1'}
+
+test_get_holiday_period:
+ - { username: test38-test,password: wemust@prod,application: 請假,
+      setting: 假期週期,expect: True }
+
+test_edit_holiday_period:
+# - {username: test38-test,password: wemust@prod,application: 請假,
+#    setting: 假期週期,period_name: '教研人員適用',leave_type: ['大學管理人員',],expect: True}
+
+#mo測試
+ - {username: test38-test,password: wemust@prod,application: 請假,
+    setting: 假期週期,period_name: '教研人員適用',leave_type: ['其他',],expect: True}
+
+test_get_summer_date_and_for_people:
+  - { username: test38-test,password: wemust@prod,application: 請假,user: test38-test,
+      setting: 暑期工作日設置,summer_name: 暑期週三為工作日的教師適用}
+test_edit_summer_setting:
+# - {username: test38-test,password: wemust@prod,application: 請假,
+#    setting: 暑期工作日設置,summer_name: '暑期週三為工作日的教師適用',leave_type: ['全職',],expect: True}
+# uat
+# - {username: test38-test,password: wemust@prod,application: 請假,
+#    setting: 暑期工作日設置,summer_name: '暑期週三為工作日的教師適用',leave_type: ['1201测试_UAT',],expect: True}
+
+# mo
+ - {username: test38-test,password: wemust@prod,application: 請假,
+    setting: 暑期工作日設置,summer_name: '暑期週三為工作日的教師適用',leave_type: ['其他',],expect: True}
+
+#--------賬號設置---------------
+test_get_user_information:
+#  - { username: test38-test,password: wemust@prod,application: 請假,user_list: ["test50","test51","test52","test300"]}
+#  - { username: test38-test,password: wemust@prod,application: 請假,user_list: ["deke1700","deke1701","deke1702","deke1703"]}
+#uat
+  - { username: test38-test,password: wemust@prod,application: 請假,user_list: ["test407"]}
+
+
+test_edit_date_of_entry:
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test50',vacation_type: '1201测试',
+#      entrydate: 2020-06-01,expect: 2020-06-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test51',vacation_type: '1201测试',
+#      entrydate: 2020-06-01,expect: 2020-06-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test52',vacation_type: '1201测试',
+#      entrydate: 2019-06-01,expect: 2019-06-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke2704',vacation_type: '测试-2',
+#      entrydate: 2020-06-01,expect: 2020-06-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1704',vacation_type: '测试-2',
+#      entrydate: 2020-06-01,expect: 2020-06-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1709',vacation_type: '1201测试',
+#      entrydate: 2020-06-01,expect: 2020-06-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1708',vacation_type: '测试-2',
+#      entrydate: 2020-06-01,expect: 2020-06-01 }
+
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1700',vacation_type: '测试-2',
+#      entrydate: 2019-06-01,expect: 2019-06-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1701',vacation_type: '测试-2',
+#      entrydate: 2019-06-01,expect: 2019-06-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1702',vacation_type: '1201测试',
+#      entrydate: 2020-06-01,expect: 2020-06-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1703',vacation_type: '1201测试',
+#      entrydate: 2020-06-01,expect: 2020-06-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1705',vacation_type: '1201测试',
+#      entrydate: 2019-06-01,expect: 2019-06-01 }
+
+##uat測試
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test400',vacation_type: '其他',
+#      entrydate: 2019-06-01,expect: 2019-06-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test401',vacation_type: '其他',
+#      entrydate: 2019-06-01,expect: 2019-06-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test402',vacation_type: '1201测试_UAT',
+#      entrydate: 2020-06-01,expect: 2020-06-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test403',vacation_type: '1201测试_UAT',
+#      entrydate: 2020-06-01,expect: 2020-06-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test404',vacation_type: '1201测试_UAT',
+#      entrydate: 2020-06-01,expect: 2020-06-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test405',vacation_type: '1201测试_UAT',
+#      entrydate: 2020-06-01,expect: 2020-06-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test406',vacation_type: '1201测试_UAT',
+#      entrydate: 2019-06-01,expect: 2019-06-01 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test407',vacation_type: '全職',
+#      entrydate: 2019-06-01,expect: 2019-06-01 }
+
+#mo測試
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test36-test',vacation_type: '其他',
+      entrydate: 2020-06-01,expect: 2020-06-01 }
+
+#-------------流程測試-----------------------------------
+test_AL_application:
+# 當前處於A周期，A周期剩餘年假>M，B周期年假>N，验证申请成功  test50  deke1702  測試1
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2021-06-30,leave_starttype: 全天,remarks: 測試數據,expect1: True}
+
+# 當前處於A周期，A周期剩餘年假<M，B周期年假>N，验证申请失敗  test51-前提1，請1天年假
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2021-06-01,leave_starttype: 全天,remarks: 測試數據,expect1: True}
+# 當前處於A周期，A周期剩餘年假<M，B周期年假>N，验证申请失敗  test51-測試2，請暑期
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2021-06-30,leave_starttype: 全天,remarks: 測試數據,expect1: False}
+
+# 當前處於B周期，周三在A周期，申請暑期假，不可申请 1
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-06-24,leave_starttype: 全天,remarks: 測試數據,expect1: True}
+
+# 當前處於B周期，B周期剩餘年假>M，A周期年假<N，验证申请成功  deke2704請暑期
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-07-01,leave_starttype: 全天,remarks: 測試數據,expect1: True}
+
+# 當前處於B周期，周三在B周期，判斷M值，M>2，N=0，验证申请成功  deke1703請暑期1
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-07-01,leave_starttype: 全天,remarks: 測試數據,expect1: True}
+
+# 當前處於B周期，周三在B周期，判斷M值，M>3，N=3，验证申请成功，查看歷史結餘天數為0  deke1705請暑期
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-07-01,leave_starttype: 全天,remarks: 測試數據,expect1: True}
+
+
+#uat暑期測試
+#1.當前處於A周期，周三在A周期，A周期剩餘年假>M，B周期年假>N，验证申请成功  test402 測試1
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2021-06-30,
+#     leave_starttype: 全天,remarks: 測試數據,expect1: True}
+
+# 2.當前處於A周期，周三在A周期，A周期剩餘年假<M，B周期年假>N，验证申请失敗  test403-前提1，請1天年假
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2021-06-01,leave_starttype: 全天,remarks: 測試數據,expect1: True}
+# 2-1.當前處於A周期，周三在A周期，A周期剩餘年假<M，B周期年假>N，验证申请失敗  test403-測試2，請暑期 提示：可用假期天數不足
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2021-06-30,leave_starttype: 全天,remarks: 測試數據,expect1: False}
+
+# 3.當前處於B周期，周三在A周期，申請暑期假，不可申请 test403
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-06-24,leave_starttype: 全天,remarks: 測試數據,expect1: True}
+
+# 6.當前處於B周期，周三在B周期，判斷M值，M>2，N=0，验证申请成功  test405請暑期1 提示：需補充申請無薪假:2天數
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-07-01,leave_starttype: 全天,remarks: 測試數據,expect1: True}
+
+# 7.當前處於B周期，周三在B周期，判斷M值，M>3，N=3，验证申请成功，查看歷史結餘天數為0  test406請暑期
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-07-01,leave_starttype: 全天,remarks: 測試數據,expect1: True}
+
+#Mo
+# 2.當前處於A周期，周三在A周期，A周期剩餘年假<M，B周期年假>N，验证申请失敗  test403-前提1，請1天年假
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2021-06-01,leave_starttype: 全天,remarks: 測試數據,expect1: True}
+# 2-1.當前處於A周期，周三在A周期，A周期剩餘年假<M，B周期年假>N，验证申请失敗  test403-測試2，請暑期 提示：可用假期天數不足
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2021-06-30,leave_starttype: 全天,remarks: 測試數據,expect1: False}
+# 6.當前處於B周期，周三在B周期，判斷M值，M>2，N=0，验证申请成功  test405請暑期1 提示：需補充申請無薪假:2天數
+  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-07-01,leave_starttype: 全天,remarks: 測試數據,expect1: True}
+
+
+test_UL_application:
+# 當前處於B周期，周三在B周期，判斷M值，M>2，N=0  deke1703請暑期2:驗證申請無薪假不可與占用日期重叠 ，申請失敗
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-07-01,leave_starttype: 全天,remarks: 測試數據,
+#     path: D:\PycharmProjects\wmPC_exam\excel\123.xls,expect1: True}
+
+# 當前處於B周期，周三在B周期，判斷M值，M>2，N=0  deke1703請暑期3:驗證申請無薪假不可與占用日期重叠 ，申請失敗
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-06-25,leave_starttype: 全天,remarks: 測試數據,
+#     path: D:\PycharmProjects\wmPC_exam\excel\123.xls,expect1: True}
+
+#uat
+# 6-1.當前處於B周期，周三在B周期，判斷M值，M>2，N=0  test405請暑期2:驗證申請無薪假不可與占用日期重叠 ，申請失敗
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-07-01,leave_starttype: 全天,remarks: 測試數據,
+#     path: D:\PycharmProjects\wmPC_exam\excel\123.xls,expect1: True}
+
+# 6-2.當前處於B周期，周三在B周期，判斷M值，M>2，N=0  test405請暑期3:驗證申請無薪假不可與占用日期重叠 ，申請失敗
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-06-25,leave_starttype: 全天,remarks: 測試數據,
+#     path: D:\PycharmProjects\wmPC_exam\excel\123.xls,expect1: True}
+
+#mo
+# 6-1.當前處於B周期，周三在B周期，判斷M值，M>2，N=0  test405請暑期2:驗證申請無薪假不可與占用日期重叠 ，申請失敗
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-07-01,leave_starttype: 全天,remarks: 測試數據,
+#     path: D:\PycharmProjects\wmPC_exam\excel\123.xls,expect1: True}
+
+# 6-2.當前處於B周期，周三在B周期，判斷M值，M>2，N=0  test405請暑期3:驗證申請無薪假不可與占用日期重叠 ，申請失敗
+  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-06-25,leave_starttype: 全天,remarks: 測試數據,
+     path: D:\PycharmProjects\wmPC_exam\excel\123.xls,expect1: True}
+
+test_cancel_the_first_leave:
+  - {username: test38-test,password: wemust@prod,application: 請假,expect: 已撤銷}
+
+test_cancel_leave_number:
+# 測試deke1703請無薪假和年假7/1
+#  - {username: test38-test,password: wemust@prod,application: 請假,leave_num: LV202012040002,expect: 已撤銷}
+#  - {username: test38-test,password: wemust@prod,application: 請假,leave_num: LV202012040001,expect: 已撤銷}
+#  - {username: test38-test,password: wemust@prod,application: 請假,leave_num: LV202011300009,expect: 已撤銷}
+#  - {username: test38-test,password: wemust@prod,application: 請假,leave_num: LV202012040004,expect: 已撤銷}
+#  - {username: test38-test,password: wemust@prod,application: 請假,leave_num: LV202012040003,expect: 已撤銷}
+
+#uat測試
+#  - {username: test38-test,password: wemust@prod,application: 請假,leave_num: LV202012040002,expect: 已撤銷}
+#  - {username: test38-test,password: wemust@prod,application: 請假,leave_num: LV202012040001,expect: 已撤銷}
+
+#mo
+#  - {username: test38-test,password: wemust@prod,application: 請假,leave_num: LV202012040042,expect: 已撤銷}
+#  - { username: test38-test,password: wemust@prod,application: 請假,leave_num: LV202012040041,expect: 已撤銷 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,leave_num: LV202012040043,expect: 已撤銷 }
+#  - { username: test38-test,password: wemust@prod,application: 請假,leave_num: LV202012040044,expect: 已撤銷 }
+  - { username: test38-test,password: wemust@prod,application: 請假,leave_num: LV202012040046,expect: 已撤銷 }
+  - { username: test38-test,password: wemust@prod,application: 請假,leave_num: LV202012040047,expect: 已撤銷 }
+
+
+test_AL_application_over_a_day:
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2021-01-04,leave_starttype: 全天,enddate: 2021-01-05,leave_endtype: 全天,remarks: 測試數據,expect: True}
+#確認下周年年假只剩1天，申請失敗-test50  deke1702
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2021-09-01,leave_starttype: 全天,enddate: 2021-09-02,leave_endtype: 全天,remarks: 測試數據,expect: True}
+# 當前處於B周期,周三在B周期，判斷M值,M>2，N<2,申請成功(HR設置上一年度帶薪年假1天)  deke1700
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-06-29,leave_starttype: 全天,enddate: 2020-07-02,leave_endtype: 全天,remarks: 測試數據,expect: True}
+
+# 測試A周期申請無薪假，deke1703這次請6/28~7/2號
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-06-29,leave_starttype: 全天,enddate: 2020-07-02,leave_endtype: 全天,remarks: 測試數據,expect: True}
+
+
+# 周三在B周期，判斷M值，不纍計，M<2，N>2  測試1-前提deke1708，請暑期
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-11-30,leave_starttype: 全天,enddate: 2020-11-30,leave_endtype: 全天,remarks: 測試數據,expect: True}
+# 周三在B周期，判斷M值，不纍計，M<2，N>2  測試2，deke1708，請暑期
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-07-01,leave_starttype: 全天,enddate: 2020-07-03,leave_endtype: 全天,remarks: 測試數據,expect: True}
+
+# 當前處於B周期，周三在A周期，申請暑期假，不可申请 2
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-06-22,
+#     leave_starttype: 全天,enddate: 2020-06-26,leave_endtype: 全天,remarks: 測試數據,expect: True}
+
+
+#uat測試
+#1-1確認下周年年假只剩1天，申請失敗-test50  test402，提示：可用假期天數不足
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2021-09-01,
+#     leave_starttype: 全天,enddate: 2021-09-02,leave_endtype: 全天,remarks: 測試數據,expect: True}
+
+# 3-1當前處於B周期，周三在A周期，申請暑期假，不可申请
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-06-22,
+#     leave_starttype: 全天,enddate: 2020-06-26,leave_endtype: 全天,remarks: 測試數據,expect: True}
+
+#4.周三在B周期，判斷M值，不纍計，M<2，N>2  測試1-前提test404，請暑期
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-11-30,leave_starttype: 全天,enddate: 2020-11-30,leave_endtype: 全天,remarks: 測試數據,expect: True}
+#4-1.周三在B周期，判斷M值，不纍計，M<2，N>2  測試2申請失敗，test404，請暑期
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-07-01,leave_starttype: 全天,enddate: 2020-07-03,leave_endtype: 全天,remarks: 測試數據,expect: True}
+
+#5.當前處於B周期,周三在B周期，判斷M值,M>2，N<2,申請成功(HR設置上一年度帶薪年假1天)  test401
+#  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-06-29,leave_starttype: 全天,enddate: 2020-07-02,leave_endtype: 全天,remarks: 測試數據,expect: True}
+
+#mo測試
+#5.當前處於B周期,周三在B周期，判斷M值,M>2，N<2,申請成功(HR設置上一年度帶薪年假1天)  test36-test
+  - {username: test38-test,password: wemust@prod,application: 請假,mobile_no: 8585,startdate: 2020-06-29,leave_starttype: 全天,enddate: 2020-07-02,leave_endtype: 全天,remarks: 測試數據,expect: True}
+
+test_get_the_first_AL_info:
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: deke1703,expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: deke1700,expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: deke1701,expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: deke1700,expect: True }
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: deke1705,expect: True }
+
+#uat
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: test407,expect: True }
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: test406,expect: True }
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: test405,expect: True }
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: test404,expect: True }

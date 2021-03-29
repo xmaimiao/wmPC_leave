@@ -1,3 +1,5 @@
+import re
+
 from common.contants import approver_information_details_dir
 from page.basepage import BasePage
 from page.leavepage.Approver_information_table.approver_information_table import Approver_Information_Table
@@ -14,8 +16,12 @@ class Approver_Information_Details(BasePage):
             self._params["vacation_type"] = vacation_type
             results = self.step(approver_information_details_dir,"edit_vacation_type")
             for result in results:
-                if result.text == vacation_type+"()":
+                print(f"result:{result}")
+                result_text = re.search('(.*)(\(.*\))',result.text).group(1)
+                print(f"result_text:{result_text}")
+                if result_text == vacation_type:
                     result.click()
+                    break
             return self
         except Exception as e:
             print("編輯的休假類型不存在！")
@@ -36,6 +42,20 @@ class Approver_Information_Details(BasePage):
         self.step(approver_information_details_dir,"edit_supervisor")
         return Select_Staff(self._driver)
 
+    def edit_representative_for_leave(self):
+        '''
+        修改代請假人
+        '''
+        self.step(approver_information_details_dir,"edit_representative_for_leave")
+        return Select_Staff(self._driver)
+
+    def edit_person_type(self,person_type):
+        '''
+        編輯人員類型
+        '''
+        self._params["person_type"] = person_type
+        self.step(approver_information_details_dir,"edit_person_type")
+        return self
 
     def edit_date_of_entry(self,entrydate):
         '''

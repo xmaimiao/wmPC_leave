@@ -13,6 +13,11 @@ goto_leave_approval_HR:
     locator: '//*[@class="icon iconfont icon-xiujia-xiujiabeian"]'
     action: click
 
+goto_leave_approval:
+  - by: xpath
+    locator: '//*[@class="icon iconfont icon-xiujia-xiujiashenpi"]'
+    action: click
+
 goto_staff_application_for_leave_HR:
   - by: xpath
     locator: '//*[@class="icon iconfont icon-xiujia-yuangongqingjiaHR"]'

@@ -91,3 +91,8 @@ cleck_save:
   - by: xpath
     locator: '//*[@class="tab_title_2"]'
     action: text
+
+get_AL_reminders:
+  - by: xpath
+    locator: '//p[@class="help-block leave_tips"]'
+    action: text

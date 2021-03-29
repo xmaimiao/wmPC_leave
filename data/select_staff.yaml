@@ -14,36 +14,49 @@ click_save:
     locator: '//*[@class="share_footer"]//input[1]'
     action: click
 
-choise_staff:
-#等待輸入框元素出現
+search_staff:
+#清除輸入框關鍵詞
   - by: xpath
     locator: '//*[@class="searchbox_1 popup_s"]/input[2]'
-    action: wait
+    action: clear
 #在輸入框中輸入user
   - by: xpath
     locator: '//*[@class="searchbox_1 popup_s"]/input[2]'
     action: send
     value: ${user}
-#等待人員賬號出現
-  - by: xpath
-    locator: 22
-    action: sleep
+
+
+choise_staff:
 #再點擊“查詢”icon，否則會提示“輸入框爲空”
   - by: xpath
     locator: '//*[@class="searchbox_1 popup_s"]/input[1]'
     action: click
 #等待所有結果出現
   - by: xpath
-    locator: '//span[contains(text(),"${user}")]'
+    locator: '//*[@class="jstree-anchor jstree-search"]/../i'
     action: wait
 #返回查詢結果，並點擊第一個結果，這裏應避免在頁面上有test304登錄賬號的個情況下再次查詢test304
   - by: xpath
-    locator: '//span[contains(text(),"${user}")]'
+    locator: '//*[@class="jstree-anchor jstree-search"]/../i'
     action: eles
 
 delect_staff:
+#從選人框右側刪除人員，但是目前沒有實現滾動定位到賬號
   - by: xpath
     locator: '//*[@class="treelist shareList"]//div[@class="caption"]/span[contains(text(),"${user}")
     and @class="en"]/../../../../..//span[@class="del"]'
     action: click
+
+##再點擊“查詢”icon，否則會提示“輸入框爲空”
+#  - by: xpath
+#    locator: '//*[@class="searchbox_1 popup_s"]/input[1]'
+#    action: click
+##等待所有結果出現
+#  - by: xpath
+#    locator: '//span[contains(text(),"${user}")]'
+#    action: wait
+##返回查詢結果，並點擊第一個結果，這裏應避免在頁面上有test304登錄賬號的個情況下再次查詢test304
+#  - by: xpath
+#    locator: '//span[text()="${user}" and @class="en"]'
+#    action: eles
 

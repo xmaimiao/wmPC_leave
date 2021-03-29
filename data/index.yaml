@@ -8,6 +8,12 @@ goto_application:
     locator: '//*[@class="link-button head-button hv-bright"][last()]/i'
     action: click
 
+goto_OA_approval:
+  -
+    by: xpath
+    locator: '//*[@class="left"]/a[contains(text(),"審批")]'
+    action: click
+
 quit:
   -
     by: xpath
@@ -17,3 +23,13 @@ quit:
     by: xpath
     locator: '//*[@class="link-button user-info"]/../../div[2]//li[last()]'
     action: click
+
+get_index_ele_fir:
+  - by: xpath
+    locator: '//*[@class="header_right"]/ul[@class="nav"]/li[2]/a/span'
+    action: text
+
+get_index_ele_sec:
+  - by: xpath
+    locator: '//*[@class="left"]/a[1]'
+    action: text

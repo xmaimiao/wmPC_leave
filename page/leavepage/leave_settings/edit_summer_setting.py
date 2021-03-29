@@ -1,19 +1,15 @@
 from common.contants import edit_summer_setting_dir
 from page.basepage import BasePage
+from page.select_leave_type import Select_Leave_Type
 
 
 class Edit_Summer_Setting(BasePage):
-    def edit_for_people(self,leave_type):
+    def edit_for_people(self):
         '''
         编辑適用人群
-        :param leave_type:传参，休假类型
         '''
-        if leave_type in self._driver.page_source:
-            pass
-        else:
-            self._params["leave_type"] = leave_type
-            self.step(edit_summer_setting_dir,"edit_for_people")
-        return self
+        self.step(edit_summer_setting_dir,"edit_for_people")
+        return Select_Leave_Type(self._driver)
 
     def click_save(self):
         self.step(edit_summer_setting_dir, "click_save")

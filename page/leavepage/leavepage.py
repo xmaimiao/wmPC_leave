@@ -2,6 +2,7 @@ from page.basepage import BasePage
 from common.contants import leavepage_dir
 from page.leavepage.Approver_information_table.approver_information_table import Approver_Information_Table
 from page.leavepage.leave_application.application_for_leave import Application_For_Leaver
+from page.leavepage.leave_approval.leave_approval import Leave_Approval
 from page.leavepage.leave_approval_HR.leave_approval_HR import Leave_Approval_HR
 from page.leavepage.leave_balance_statement.leave_balance_statement import Leave_Balance_Statement
 from page.leavepage.leave_search.leave_search import Leave_Search
@@ -39,6 +40,13 @@ class LeavePage(BasePage):
         '''
         self.step(leavepage_dir,"goto_leave_approval_HR")
         return Leave_Approval_HR(self._driver)
+
+    def goto_leave_approval(self):
+        '''
+        打開休假审批页面
+        '''
+        self.step(leavepage_dir,"goto_leave_approval")
+        return Leave_Approval(self._driver)
 
     def goto_approver_information_table(self):
         '''

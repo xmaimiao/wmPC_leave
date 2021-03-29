@@ -6,46 +6,162 @@ test_delect_annual:
     setting: 帶薪年假,rule_name: '10-24',expect: 0}
 
 test_add_annual:
- - {username: test38-test,password: wemust@prod,application: 請假,
-    setting: 帶薪年假,rule_name: '10-24',annual_point: 12,maxTotal_days: 12,minDay: 0.5,num: 1,leave_type: '德科-测试',expect: '10-24'}
+#mo測試
+ - {username: test38-test,password: wemust@prod,application: 請假,setting: 帶薪年假,rule_name: '12-04暑期測試1',
+    annual_point: 2,maxTotal_days: 2,minDay: 0.5,num: 1,leave_type: ['其他',],expect: '12-04暑期測試1'}
 
 test_edit_annual:
+# - {username: test38-test,password: wemust@prod,application: 請假,
+#    setting: 帶薪年假,rule_name: '全職',annual_point: 12,maxTotal_days: 12,
+#    minDay: 0.5,num: 1,leave_type: '大學管理人員',expect: "添加"}
+
  - {username: test38-test,password: wemust@prod,application: 請假,
-    setting: 帶薪年假,rule_name: '全職',annual_point: 12,maxTotal_days: 12,
-    minDay: 0.5,num: 1,leave_type: '大學管理人員',expect: True}
+    setting: 帶薪年假,rule_name: '全職',annual_point: 22,maxTotal_days: 22,
+    minDay: 0.5,num: 1,leave_type: ['全職',],expect: "添加"}
+
+test_edit_annual_staff:
+ - {username: test38-test,password: wemust@prod,application: 請假,
+    setting: 帶薪年假,rule_name: '全職',leave_type: ['測試-C',],expect: "添加"}
 
 test_edit_annual_cumulative_rule:
   - { username: test38-test,password: wemust@prod,application: 請假,
        setting: 帶薪年假,rule_name: '兼職教研人員 - 只可享用無薪假',expect: "添加" }
+
+test_edit_rest_day_staff:
+#  - { username: test38-test,password: wemust@prod,application: 請假,
+#       setting: 休息日,week: '星期二',leave_type: ['測試-C',]}
+#  - { username: test38-test,password: wemust@prod,application: 請假,
+#       setting: 休息日,week: '星期二',leave_type: ['1201测试',]}
+  - { username: test38-test,password: wemust@prod,application: 請假,
+       setting: 休息日,week: '星期三',leave_type: ['1201测试',]}
+
+test_add_public_holiday:
+#  - { username: test38-test,password: wemust@prod,application: 請假,
+#      setting: 公眾假,rule_name: '非輪班人員測試1',startday: 2021-02-02,endday: 2021-02-02,
+#      leave_type: [ '測試-C', ]}
+#  - { username: test38-test,password: wemust@prod,application: 請假,
+#      setting: 公眾假,rule_name: '非輪班人員測試4',startday: 2021-02-06,endday: 2021-02-06,
+#      leave_type: ['测试-2',]}
+#uat
+  - { username: test38-test,password: wemust@prod,application: 請假,
+      setting: 公眾假,rule_name: '非輪班人員測試1',startday: 2021-02-02,endday: 2021-02-02,
+      leave_type: ['其他',]}
+#  - { username: test38-test,password: wemust@prod,application: 請假,
+#      setting: 公眾假,rule_name: '非輪班人員測試4',startday: 2021-02-06,endday: 2021-02-06,
+#      leave_type: ['其他',]}
+
+test_add_public_holiday_half_day:
+#  - { username: test38-test,password: wemust@prod,application: 請假,
+#      setting: 公眾假,rule_name: '非輪班人員測試2_上午',startday: 2021-02-04,endday: 2021-02-04,half_day: "上午",
+#      leave_type: [ '测试-2', ] }
+#  - { username: test38-test,password: wemust@prod,application: 請假,
+#      setting: 公眾假,rule_name: '非輪班人員測試3_下午',startday: 2021-02-05,endday: 2021-02-05,half_day: "下午",
+#      leave_type: [ '测试-2', ] }
+
+#uat
+  - { username: test38-test,password: wemust@prod,application: 請假,
+      setting: 公眾假,rule_name: '非輪班人員測試2_上午',startday: 2021-02-04,endday: 2021-02-04,half_day: "上午",
+      leave_type: [ '其他', ] }
+  - { username: test38-test,password: wemust@prod,application: 請假,
+      setting: 公眾假,rule_name: '非輪班人員測試3_下午',startday: 2021-02-05,endday: 2021-02-05,half_day: "下午",
+      leave_type: [ '其他', ] }
+
+test_edit_public_holiday_staff:
+  - { username: test38-test,password: wemust@prod,application: 請假,
+      setting: 公眾假,rule_name: '非輪班人員測試4',leave_type: [ '测试-2', ] }
+
+test_edit_public_holiday_mandatory:
+#  - { username: test38-test,password: wemust@prod,application: 請假,
+#      setting: 公眾假,rule_name: '非輪班人員測試1' }
+#  - { username: test38-test,password: wemust@prod,application: 請假,
+#      setting: 公眾假,rule_name: '非輪班人員測試2_上午' }
+#  - { username: test38-test,password: wemust@prod,application: 請假,
+#      setting: 公眾假,rule_name: '非輪班人員測試3_下午' }
+#  - { username: test38-test,password: wemust@prod,application: 請假,
+#      setting: 公眾假,rule_name: '非輪班人員測試4' }
+  - { username: test38-test,password: wemust@prod,application: 請假,
+      setting: 公眾假,rule_name: '20201年元旦节' }
 
 test_get_holiday_period:
  - { username: test38-test,password: wemust@prod,application: 請假,
       setting: 假期週期,expect: True }
 
 test_edit_holiday_period:
+#mo測試
+# - {username: test38-test,password: wemust@prod,application: 請假,
+#    setting: 假期週期,period_name: '教研人員適用',leave_type: ['其他',],expect: True}
+#dev測試
  - {username: test38-test,password: wemust@prod,application: 請假,
-    setting: 假期週期,period_name: '教研人員適用',leave_type: '大學管理人員',expect: True}
+    setting: 假期週期,period_name: '行政人員適用',leave_type: ['測試-C',],expect: True}
+
+test_add_worktime_setting:
+  - { username: test38-test,password: wemust@prod,application: 請假,
+      setting: 工作時間設置,rule_name: '非輪班人員測試1',starttime: "09:00",endtime: "12:00",leave_type: [ '测试-2', ] }
 
 test_get_summer_date_and_for_people:
   - { username: test38-test,password: wemust@prod,application: 請假,user: test38-test,
       setting: 暑期工作日設置,summer_name: 暑期週三為工作日的教師適用}
 test_edit_summer_setting:
+# mo
  - {username: test38-test,password: wemust@prod,application: 請假,
-    setting: 暑期工作日設置,summer_name: '暑期週三為工作日的教師適用',leave_type: '全職',expect: True}
+    setting: 暑期工作日設置,summer_name: '暑期週三為工作日的教師適用',leave_type: ['其他',],expect: True}
+
 test_edit_summer_setting_of_date:
   - { username: test38-test,password: wemust@prod,application: 請假,
      summer_name: 暑期週三為工作日的教師適用,start_date: '6-21',end_date: '8-20',setting: 暑期工作日設置,expect: True }
 
-test_get_xingzheng_AL_HR:
+test_get_all_HR:
  - {username: test38-test,password: wemust@prod,application: 請假,user: test38-test,
     setting: HR審批人員設置,expect: True}
-test_get_jiaoyan_AL_HR:
- - { username: test38-test,password: wemust@prod,application: 請假,user: test38-test,
-      setting: HR審批人員設置,expect: True }
-test_edit_xingzheng_AL_HR:
- - {username: test38-test,password: wemust@prod,application: 請假,user: test38-test,
+test_edit_approver_HR:
+#验证編輯審批人 HR
+# - {username: test38-test,password: wemust@prod,application: 請假,rules_name: 教研-有薪年假,user: deke1700,
+#    setting: HR審批人員設置, expect: True}
+# - {username: test38-test,password: wemust@prod,application: 請假,rules_name: 行政-有薪年假,user: deke1700,
+#    setting: HR審批人員設置, expect: True}
+#uat
+# - {username: test38-test,password: wemust@prod,application: 請假,rules_name: 教研-有薪年假,user: test503,
+#    setting: HR審批人員設置, expect: True}
+# - {username: test38-test,password: wemust@prod,application: 請假,rules_name: 行政-有薪年假,user: test503,
+#    setting: HR審批人員設置, expect: True}
+#mo
+ - {username: test38-test,password: wemust@prod,application: 請假,rules_name: 教研-有薪年假,user: test41-test,
+#    setting: HR審批人員設置, expect: True}
+ - {username: test38-test,password: wemust@prod,application: 請假,rules_name: 行政-有薪年假,user: test41-test,
     setting: HR審批人員設置, expect: True}
-test_del_xingzheng_AL_HR:
- - {username: test38-test,password: wemust@prod,application: 請假,users: ["test38-test","test40-test"],
+
+test_edit_approver_check_HR:
+#验证編輯審批人 \審核人 HR
+#uat
+# - {username: test38-test,password: wemust@prod,application: 請假,rules_name: 行政-其他,user: test400,
+#    setting: HR審批人員設置, expect: True}
+#dev
+ - { username: test38-test,password: wemust@prod,application: 請假,rules_name: 行政-其他,user: deke1705,
+     setting: HR審批人員設置, expect: True }
+ - { username: test38-test,password: wemust@prod,application: 請假,rules_name: 教研-其他,user: deke1705,
+     setting: HR審批人員設置, expect: True }
+
+
+test_del_approver_HR:
+#uat
+ - {username: test38-test,password: wemust@prod,application: 請假,rules_name: 行政-有薪年假,users: ["test300","test301"],
     setting: HR審批人員設置, expect: True}
+
+test_AL_rules_add_types:
+ - {username: test38-test,password: wemust@prod,application: 請假,type_list: ["全職","其他"],
+    setting: 帶薪年假, rule_name: 全職,expect: 添加}
+
+test_AL_rules_del_types:
+ - {username: test38-test,password: wemust@prod,application: 請假,type_list: ["全職","其他"],
+    setting: 帶薪年假, rule_name: 全職,expect: 添加}
+
+test_edit_person_type:
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'deke1701',
+#      person_type: 行政人員,expect: True }
+#  uat
+#  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test400',
+#      person_type: 行政人員,expect: True }
+  - { username: test38-test,password: wemust@prod,application: 請假,keywords: 'test401',
+      person_type: 行政人員,expect: True }
+
 

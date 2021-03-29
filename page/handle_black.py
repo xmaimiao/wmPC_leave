@@ -5,8 +5,6 @@ def handlie_blacklist(func):
     def wrapper(*args, **kwargs):
         _blacklist = [
             (By.XPATH, '//*[@class="ivu-drawer-wrap we-drawer"]/div/div/div/div[3]/i'),
-            # 請假彈出“在計算請假天數”警告框，點擊確認繼續流程
-            (By.XPATH, '//*[@class="quit-btn ivu-btn ivu-btn-default"]/span'),
             # 登陆页面“确认”按钮
             (By.XPATH, '//*[@name="submit"]'),
             # 请假/加班弹出框的“确认”按钮
@@ -45,11 +43,6 @@ def handlie_blacklist(func):
                         pop = instance.find(*_pop_text).text
                         print(f"温馨提示：{pop}")
                     eles[0].click()
-                    # # 特殊處理，針對請假彈出“在計算請假天數”警告框，點擊確認繼續流程
-                    # if ele[1] in _blacklist[2][1]:
-                    #     instance.find(*_leave_confirm).click()
-                    # if ele[1] in _blacklist[4][1]:
-                    #     instance.find(*_leave_confirm).click()
                     return wrapper(*args, **kwargs)
             raise ValueError("元素不在黑名單中")
     return wrapper

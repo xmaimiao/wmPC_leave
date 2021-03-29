@@ -10,9 +10,13 @@ def get_env():
     '''
     with open(basepage_dir, encoding="utf-8") as f:
         datas = yaml.safe_load(f)
-        wm_env = datas["default"]
-        setup_datas = datas[wm_env]
-        return setup_datas
+        # 获取basepage.yaml中设置的环境变量
+        wm_env =  datas["default"]
+        # 根据环境变量取对应的账号和密码
+        user_env = datas["user"][wm_env]
+        # 根据环境变量取对应的睡眠时间
+        sleep_env = datas["sleeps"][wm_env]
+        return user_env,sleep_env
 
 class Test_Leave_Balance_Statement:
 
@@ -35,9 +39,9 @@ class Test_Leave_Balance_Statement:
             非調試端口用
             '''
             self.main = Main().goto_login(). \
-                username(self._setup_datas["username"]).password(self._setup_datas["password"]).save(). \
+                username(self._setup_datas[0]["username"]).password(self._setup_datas[0]["password"]).save(). \
                 goto_application(). \
-                goto_leave(self._setup_datas["application"])
+                goto_leave(self._setup_datas[0]["application"])
 
         def teardown_class(self):
             '''

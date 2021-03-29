@@ -1,9 +1,10 @@
 import yaml
-from common.contants import leavepage_dir, main1_dir, basepage_dir
-from page.OA_approvel.OA_approvalPage import OA_Approval
+from common.contants import leavepage_dir, main1_dir, basepage_dir, index_dir
+from page.OA_approvel.all_approvals.OA_approvalPage import OA_Approval
 from page.basepage import BasePage, _get_working
 from page.index import Index
 from page.leavepage.Approver_information_table.approver_information_table import Approver_Information_Table
+from page.leavepage.leave_approval.leave_approval import Leave_Approval
 from page.leavepage.leave_approval_HR.leave_approval_HR import Leave_Approval_HR
 from page.leavepage.leave_balance_statement.leave_balance_statement import Leave_Balance_Statement
 from page.leavepage.leave_search.leave_search import Leave_Search
@@ -25,7 +26,6 @@ class Main(BasePage):
     def goto_login(self):
         '''
         進去登錄頁面
-        :return:
         '''
         return Login(self._driver)
 
@@ -33,6 +33,13 @@ class Main(BasePage):
         '''
         打開首頁
         '''
+        return Index(self._driver)
+
+    def OA_goto_index(self):
+        '''
+        OA/一期應用進入首頁
+        '''
+        self.step(main1_dir,"OA_goto_index")
         return Index(self._driver)
 
 
@@ -47,7 +54,7 @@ class Main(BasePage):
 
     def goto_OA_Approval(self):
         '''
-        在請假中進入OA審批
+        在請假,一期應用中進入OA審批
         '''
         self.step(main1_dir,"goto_OA_Approval")
         return OA_Approval(self._driver)
@@ -88,6 +95,13 @@ class Main(BasePage):
         self.step(leavepage_dir,"goto_leave_approval_HR")
         return Leave_Approval_HR(self._driver)
 
+    def goto_leave_approval(self):
+        '''
+        打開休假审批页面
+        '''
+        self.step(leavepage_dir,"goto_leave_approval")
+        return Leave_Approval(self._driver)
+
 
     def goto_leave_settings(self):
         '''
@@ -102,3 +116,17 @@ class Main(BasePage):
         '''
         self.step(leavepage_dir,"goto_leave_search")
         return Leave_Search(self._driver)
+
+    def logout_for_fir(self):
+        '''
+        一期應用中退出登錄
+        '''
+        self.step(main1_dir,"logout_for_fir")
+        return Login(self._driver)
+
+    def logout_for_sec(self):
+        '''
+        二期應用中退出登錄
+        '''
+        self.step(main1_dir,"logout_for_sec")
+        return Login(self._driver)

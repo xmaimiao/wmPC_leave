@@ -67,6 +67,38 @@ class Approver_Information_Table(BasePage):
         except Exception as e:
             return False
 
+    def get_the_fir_representative(self):
+        '''
+        獲取第一行人員的帶請假人
+        '''
+        try:
+            representative = self.step(approver_information_table_dir, "get_representative_for_leave")
+            print(f"代請假人為：{representative}")
+            return True
+        except Exception as e:
+            return False
+
+    def get_user_information(self):
+        '''
+        直接獲取查詢后的人員信息
+        '''
+        try:
+            user_info = {}
+            user_info["user"] = self.step(approver_information_table_dir, "get_the_first_user")
+            user_info["上級"] = self.step(approver_information_table_dir, "get_the_first_superior")
+            user_info["主管"] = self.step(approver_information_table_dir, "get_the_first_supervisor")
+            user_info["休假類型"] = self.step(approver_information_table_dir, "get_the_first_leave_type")
+            user_info["人員類型"] = self.step(approver_information_table_dir, "get_the_first_person_type")
+            user_info["代請假人"] = self.step(approver_information_table_dir, "get_representative_for_leave")
+            user_info["上一年度帶假"] = self.step(approver_information_table_dir, "get_Leaves_of_previous")
+            user_info["年假結余天數"] = self.step(approver_information_table_dir, "get_Balance_days_of_AL")
+            user_info["入職日期"] = self.step(approver_information_table_dir, "get_the_first_day_ofentry")
+            user_info["離職日期"] = self.step(approver_information_table_dir, "get_Date_of_resignation")
+            print(json.dumps(user_info,indent=4,ensure_ascii=False))
+            return True
+        except Exception as e:
+            return False
+
     def get_the_fir_information(self,user_list):
         '''
         1.传进来人员的数据
@@ -82,18 +114,21 @@ class Approver_Information_Table(BasePage):
                 self.step(approver_information_table_dir, "click_search_button")
                 self.wait_sleep(1)
                 user_info["user"] = keywords
-                user_info["superior"] = self.step(approver_information_table_dir, "get_the_first_superior")
-                user_info["supervisor"] = self.step(approver_information_table_dir, "get_the_first_supervisor")
-                user_info["leave_type"] = self.step(approver_information_table_dir, "get_the_first_leave_type")
-                user_info["Leaves_of_previous"] = self.step(approver_information_table_dir, "get_Leaves_of_previous")
-                user_info["Balance_days_of_AL"] = self.step(approver_information_table_dir, "get_Balance_days_of_AL")
-                user_info["Date_of_entry"] = self.step(approver_information_table_dir, "get_the_first_day_ofentry")
-                user_info["Date_of_resignation"] = self.step(approver_information_table_dir, "get_Date_of_resignation")
+                user_info["上級"] = self.step(approver_information_table_dir, "get_the_first_superior")
+                user_info["主管"] = self.step(approver_information_table_dir, "get_the_first_supervisor")
+                user_info["休假類型"] = self.step(approver_information_table_dir, "get_the_first_leave_type")
+                user_info["人員類型"] = self.step(approver_information_table_dir, "get_the_first_person_type")
+                user_info["代請假人"] = self.step(approver_information_table_dir, "get_representative_for_leave")
+                user_info["上一年度帶假"] = self.step(approver_information_table_dir, "get_Leaves_of_previous")
+                user_info["年假結余天數"] = self.step(approver_information_table_dir, "get_Balance_days_of_AL")
+                user_info["入職日期"] = self.step(approver_information_table_dir, "get_the_first_day_ofentry")
+                user_info["離職日期"] = self.step(approver_information_table_dir, "get_Date_of_resignation")
                 information.append(user_info)
             print(json.dumps(information,indent=4,ensure_ascii=False))
             return True
         except Exception as e:
-            return False
+            print(f"{keywords}不存在！")
+            raise e
 
 
 

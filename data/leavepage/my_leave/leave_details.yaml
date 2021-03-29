@@ -1,3 +1,11 @@
+get_first_object_Sn:
+  - by: xpath
+    locator: '//*[@class="tablelist"]//tbody/tr[1]/td[1]//span[2]'
+    action: wait
+  - by: xpath
+    locator: '//*[@class="tablelist"]//tbody/tr[1]/td[1]//span[2]'
+    action: text
+
 get_first_object_status:
   - by: xpath
     locator: '//*[@class="tablelist"]//tbody/tr[1]/td[last()-1]/span'
@@ -36,6 +44,14 @@ cancel_leave_of_number:
   - by: xpath
     locator: '//*[contains(text(),"${leave_num}")]/../../../td[last()-1]/span'
     action: text
+
+goto_the_fir_leave_cancellation:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()]//a[@class="back"]'
+    action: wait
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()]//a[@class="back"]'
+    action: click
 
 get_leave_total:
   - by: xpath

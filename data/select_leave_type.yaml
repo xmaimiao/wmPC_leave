@@ -1,0 +1,58 @@
+send_and_get_types:
+  - by: xpath
+    locator: '//*[@class="searchbox_1 popup_s"]/*[@class="input"]'
+    action: click
+  - by: xpath
+    locator: '//*[@class="searchbox_1 popup_s"]/*[@class="input"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@class="searchbox_1 popup_s"]/*[@class="input"]'
+    action: send
+    value: ${leave_type}
+  - by: xpath
+    locator: '//*[@class="searchbox_1 popup_s"]/*[@class="btn"]'
+    action: click
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: '//*[@class="jstree-anchor jstree-search"]'
+    action: eles
+
+add_leave_type:
+  - by: xpath
+    locator: '//*[@id="${ele_id}"]/i[@class="jstree-icon jstree-checkbox"]'
+    action: click
+
+
+del_send_and_get_types:
+  - by: xpath
+    locator: '//*[@class="searchbox_1 popup_s"]/*[@class="input"]'
+    action: click
+  - by: xpath
+    locator: '//*[@class="searchbox_1 popup_s"]/*[@class="input"]'
+    action: clear
+  - by: xpath
+    locator: '//*[@class="searchbox_1 popup_s"]/*[@class="input"]'
+    action: send
+    value: ${leave_type}
+  - by: xpath
+    locator: '//*[@class="searchbox_1 popup_s"]/*[@class="btn"]'
+    action: click
+  - by: xpath
+    locator: 1
+    action: sleep
+  - by: xpath
+    locator: '//*[@class="jstree-anchor  jstree-clicked jstree-search"]'
+    action: eles
+
+del_leave_type:
+  - by: xpath
+    locator: '//*[@id="${ele_id}"]/i[@class="jstree-icon jstree-checkbox"]'
+    action: click
+
+
+click_save:
+  - by: xpath
+    locator: '//*[@class="share_footer"]//*[@class="submit"]'
+    action: click

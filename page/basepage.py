@@ -197,6 +197,13 @@ class BasePage:
         iframe_ele = self.find(by, locator)
         WebDriverWait(self._driver, timeout).until(expected_conditions.frame_to_be_available_and_switch_to_it(iframe_ele))
 
+    def iframe_swith_to(self):
+        '''
+        切回主文档
+        '''
+        logging.info(f"iframe_swith_to")
+        self._driver.switch_to.default_content()
+
     def set_implicitly_wait(self,second):
         '''
         顯性等待
@@ -252,6 +259,8 @@ class BasePage:
                     self.execute_script(step["locator"])
                 if "wait_and_iframe" == action:
                     self.wait_swith_to_iframe(step["by"], step["locator"])
+                if "iframe_swith_to" == action:
+                    self.iframe_swith_to()
 
 if __name__ == '__main__':
     BasePage()

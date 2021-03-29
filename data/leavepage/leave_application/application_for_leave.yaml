@@ -6,6 +6,14 @@ get_days_available:
     locator: '//*[@class="help-block leave_tips"]'
     action: text
 
+choice_createUser:
+  - by: xpath
+    locator: '//*[@class="SumoSelect sumo_createUserId"]/p/label/i'
+    action: click
+  - by: xpath
+    locator: '//label[contains(text(),"${createUser}")]'
+    action: click
+
 send_mobile_no:
   - by: xpath
     locator: '//*[@name="createUserTel"]'
@@ -18,6 +26,10 @@ send_mobile_no:
     action: send
     value: ${mobile_no}
 
+choice_Leave_type:
+  - by: xpath
+    locator: '//*[@name="categoryId" and @data-text="${Leave_type}"]/../ins'
+    action: click
 
 choice_Unpaid_Leave:
   - by: xpath
@@ -27,6 +39,11 @@ choice_Unpaid_Leave:
 choice_Sick_Leave:
   - by: xpath
     locator: '//*[@id="myform"]/ul[2]/li[1]/div/label[2]//ins'
+    action: click
+
+choice_Marriage_Leave:
+  - by: xpath
+    locator: '//*[@data-text="婚假"]/../ins'
     action: click
 
 choice_over_a_day:
@@ -74,19 +91,10 @@ remarks:
 
 upload_attachment:
   - by: xpath
-    locator: '//*[@id="rt_rt_1eko6jcho8su115idu5thbp7g1"]/label'
+    locator: '//*[@class="webuploader-element-invisible"]/../label'
     action: click
-  - by:
-    locator: 2
-    action: sleep
 
 cleck_save:
-  - by:
-    locator: 1
-    action: sleep
   - by: xpath
     locator: '//*[@class="subbox"]/input[@class="submit"]'
     action: click
-  - by: xpath
-    locator: '//*[@class="tablelist"]/thead/tr/td[1]'
-    action: ele_status

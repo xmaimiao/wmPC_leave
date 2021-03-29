@@ -6,9 +6,9 @@ get_xingzheng_AL_HR:
     locator: '//*[@class="tablelist"]/tbody/tr[1]/td[5]/span'
     action: text
 
-goto_edit_xingzheng_AL_HR:
+goto_edit_HR:
   - by: xpath
-    locator: '//td[contains(text(),"行政-有薪年假")]/..//li[1]/a[contains(text(),"編輯")]'
+    locator: '//td[contains(text(),"${rules_name}")]/..//li[1]/a[contains(text(),"編輯")]'
     action: click
 
 get_jiaoyan_AL_HR:
@@ -19,7 +19,17 @@ get_jiaoyan_AL_HR:
     locator: '//*[@class="tablelist"]/tbody/tr[3]/td[5]/span'
     action: text
 
-goto_edit_jiaoyan_AL_HR:
+get_rule_name:
   - by: xpath
-    locator: '//*[@class="tablelist"]/tbody/tr[3]/td[last()]//li[1]/a[contains(text(),"編輯")]'
-    action: click
+    locator: '//*[@class="tablelist"]/tbody/tr[${i}]/td[1]'
+    action: text
+
+get_check:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[${i}]/td[4]/span'
+    action: text
+
+get_approver:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[${i}]/td[5]/span'
+    action: text

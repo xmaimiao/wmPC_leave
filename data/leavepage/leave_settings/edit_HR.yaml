@@ -1,0 +1,17 @@
+click_select_check:
+  - by: xpath
+    locator: '//*[contains(text(),"HR審核人")]/../div/a'
+    action: click
+
+click_select_approver:
+  - by: xpath
+    locator: '//*[@class="formlist formlist_mt"]/li[last()-1]//a[@class="input-group-addon share"]'
+    action: click
+
+click_save:
+  - by: xpath
+    locator: '//*[@class="subbox"]/input[@class="submit"]'
+    action: wait
+  - by: xpath
+    locator: '//*[@class="subbox"]/input[@class="submit"]'
+    action: click

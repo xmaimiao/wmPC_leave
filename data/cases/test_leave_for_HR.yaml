@@ -19,3 +19,5 @@ test_cancellation_of_leave_of_HR_orderby:
 
 test_cancellation_of_leave_of_HR:
   - {username: test38-test,password: wemust@prod,application: 請假,sleeps: 2,leaveSn: LV202011050001,expect: '0.0'}
+test_get_AL_reminders_of_HR:
+ - {username: test38-test,password: wemust@prod,application: 請假,user: test300}

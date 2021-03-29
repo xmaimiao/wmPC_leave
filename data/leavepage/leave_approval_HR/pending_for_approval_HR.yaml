@@ -1,0 +1,49 @@
+order_by_submission_time:
+  - by: xpath
+    locator: '//*[@class="selected-name"]'
+    action: wait
+  - by: xpath
+    locator: '//*[@class="selected-name"]'
+    action: click
+  - by: xpath
+    locator: '//*[@class="selector-item-name" and contains(text(),"提交時間")]'
+    action: click
+
+the_fir_approved_HR:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()]//li[2]/a'
+    action: wait
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()]//li[2]/a'
+    action: click
+
+the_fir_not_approved_HR:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()]//li[3]/a'
+    action: wait
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()]//li[3]/a'
+    action: click
+
+view_the_fir_HR:
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()]//li[1]/a'
+    action: wait
+  - by: xpath
+    locator: '//*[@class="tablelist"]/tbody/tr[1]/td[last()]//li[1]/a'
+    action: click
+
+select_application_number:
+  - by: xpath
+    locator: '//*[contains(text(),"${Sn}")]/..//ins[@class="iCheck-helper"]'
+    action: wait
+  - by: xpath
+    locator: '//*[contains(text(),"${Sn}")]/..//ins[@class="iCheck-helper"]'
+    action: click
+
+click_approve_all_items:
+#點擊”批量批准“按鈕
+  - by: xpath
+    locator: '//*[@class="icon iconfont icon-quanbuyidu"]'
+    action: click
+#二次彈出框點擊”確認“

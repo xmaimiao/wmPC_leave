@@ -2,3 +2,8 @@ goto_leave_details:
   - by: xpath
     locator: '//*[@class="tab_title_2"]/a[2]'
     action: click
+
+goto_substitute_leave_records:
+  - by: xpath
+    locator: '//*[@class="tab_title_2"]/a[3]'
+    action: click
